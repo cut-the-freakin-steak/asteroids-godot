@@ -1,0 +1,64 @@
+[gd_scene load_steps=2 format=3 uid="uid://bom7t7eaqjcyn"]
+
+[ext_resource type="Script" uid="uid://dtu70e44iapa0" path="res://scripts/main.gd" id="1_o5qli"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_o5qli")
+
+[node name="AsteroidMarkers" type="Node" parent="."]
+
+[node name="TopLeftA" type="Marker2D" parent="AsteroidMarkers"]
+position = Vector2(-11, -14)
+
+[node name="TopLeftMiddle" type="Marker2D" parent="AsteroidMarkers"]
+position = Vector2(47, -13)
+
+[node name="TopRightMiddle" type="Marker2D" parent="AsteroidMarkers"]
+position = Vector2(156, -13)
+
+[node name="TopMiddleA" type="Marker2D" parent="AsteroidMarkers"]
+position = Vector2(100, -14)
+
+[node name="TopRightA" type="Marker2D" parent="AsteroidMarkers"]
+position = Vector2(211, -13)
+
+[node name="RightTopMiddle" type="Marker2D" parent="AsteroidMarkers"]
+position = Vector2(213, 46)
+
+[node name="RightBottomMiddle" type="Marker2D" parent="AsteroidMarkers"]
+position = Vector2(215, 150)
+
+[node name="BottomMiddleRight" type="Marker2D" parent="AsteroidMarkers"]
+position = Vector2(161, 212)
+
+[node name="BottomMiddleLeft" type="Marker2D" parent="AsteroidMarkers"]
+position = Vector2(50, 212)
+
+[node name="MiddleRightA" type="Marker2D" parent="AsteroidMarkers"]
+position = Vector2(215, 97)
+
+[node name="BottomRightA" type="Marker2D" parent="AsteroidMarkers"]
+position = Vector2(212, 209)
+
+[node name="MiddleBottomA" type="Marker2D" parent="AsteroidMarkers"]
+position = Vector2(104, 212)
+
+[node name="BottomLeftA" type="Marker2D" parent="AsteroidMarkers"]
+position = Vector2(-7, 210)
+
+[node name="MiddleLeftA" type="Marker2D" parent="AsteroidMarkers"]
+position = Vector2(-11, 93)
+
+[node name="LeftMiddleTop" type="Marker2D" parent="AsteroidMarkers"]
+position = Vector2(-12, 43)
+
+[node name="LeftMiddleBottom" type="Marker2D" parent="AsteroidMarkers"]
+position = Vector2(-11, 149)
+
+[node name="Asteroids" type="Node" parent="."]
+
+[node name="AsteroidTimer" type="Timer" parent="."]
+wait_time = 0.95
+autostart = true
+
+[connection signal="timeout" from="AsteroidTimer" to="." method="_on_asteroid_timer_timeout"]
