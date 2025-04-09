@@ -8,19 +8,19 @@ script = ExtResource("1_o5qli")
 [node name="AsteroidMarkers" type="Node" parent="."]
 
 [node name="TopLeftA" type="Marker2D" parent="AsteroidMarkers"]
-position = Vector2(-11, -14)
+position = Vector2(-13, -15)
 
 [node name="TopLeftMiddle" type="Marker2D" parent="AsteroidMarkers"]
-position = Vector2(47, -13)
+position = Vector2(47, -15)
 
 [node name="TopRightMiddle" type="Marker2D" parent="AsteroidMarkers"]
-position = Vector2(156, -13)
+position = Vector2(156, -15)
 
 [node name="TopMiddleA" type="Marker2D" parent="AsteroidMarkers"]
-position = Vector2(100, -14)
+position = Vector2(100, -16)
 
 [node name="TopRightA" type="Marker2D" parent="AsteroidMarkers"]
-position = Vector2(211, -13)
+position = Vector2(213, -15)
 
 [node name="RightTopMiddle" type="Marker2D" parent="AsteroidMarkers"]
 position = Vector2(213, 46)
@@ -29,31 +29,31 @@ position = Vector2(213, 46)
 position = Vector2(215, 150)
 
 [node name="BottomMiddleRight" type="Marker2D" parent="AsteroidMarkers"]
-position = Vector2(161, 212)
+position = Vector2(161, 214)
 
 [node name="BottomMiddleLeft" type="Marker2D" parent="AsteroidMarkers"]
-position = Vector2(50, 212)
+position = Vector2(50, 214)
 
 [node name="MiddleRightA" type="Marker2D" parent="AsteroidMarkers"]
 position = Vector2(215, 97)
 
 [node name="BottomRightA" type="Marker2D" parent="AsteroidMarkers"]
-position = Vector2(212, 209)
+position = Vector2(212, 211)
 
 [node name="MiddleBottomA" type="Marker2D" parent="AsteroidMarkers"]
-position = Vector2(104, 212)
+position = Vector2(104, 214)
 
 [node name="BottomLeftA" type="Marker2D" parent="AsteroidMarkers"]
-position = Vector2(-7, 210)
+position = Vector2(-10, 213)
 
 [node name="MiddleLeftA" type="Marker2D" parent="AsteroidMarkers"]
-position = Vector2(-11, 93)
+position = Vector2(-14, 93)
 
 [node name="LeftMiddleTop" type="Marker2D" parent="AsteroidMarkers"]
-position = Vector2(-12, 43)
+position = Vector2(-15, 43)
 
 [node name="LeftMiddleBottom" type="Marker2D" parent="AsteroidMarkers"]
-position = Vector2(-11, 149)
+position = Vector2(-14, 149)
 
 [node name="Asteroids" type="Node" parent="."]
 

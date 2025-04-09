@@ -1,0 +1,6 @@
+res://scenes/main.tscn
+res://scenes/player.tscn
+res://scripts/asteroid-small.gd
+res://scripts/asteroid-big.gd
+res://scripts/asteroid-medium.gd
+res://scripts/asteroid.gd
