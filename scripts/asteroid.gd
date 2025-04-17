@@ -44,7 +44,7 @@ func _ready() -> void:
     vertical_speed = randi_range(35, 45) * direction.y
 
 
-func _process(delta: float) -> void:  
+func _physics_process(delta: float) -> void:  
   position.y += vertical_speed * delta
 
   if position.x > 250 or position.x < -50:

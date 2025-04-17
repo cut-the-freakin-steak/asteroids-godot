@@ -8,7 +8,7 @@ func _ready() -> void:
   horizontal_speed = randi_range(15, 30) * direction.x
 
 
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
   super(delta)
   rotation += rotation_speed * delta
 
