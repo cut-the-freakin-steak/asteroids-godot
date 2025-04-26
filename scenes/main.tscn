@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://bom7t7eaqjcyn"]
+[gd_scene load_steps=39 format=3 uid="uid://bom7t7eaqjcyn"]
 
 [ext_resource type="Script" uid="uid://dtu70e44iapa0" path="res://scripts/main.gd" id="1_o5qli"]
 [ext_resource type="PackedScene" uid="uid://dxsu0lyfisjgy" path="res://scenes/player.tscn" id="2_0wfyh"]
 [ext_resource type="Texture2D" uid="uid://bfxgp3dt64uc6" path="res://assets/sprites/player.png" id="3_sugp2"]
+[ext_resource type="FontFile" uid="uid://cxndbgxf3g7sc" path="res://assets/Brush Script.ttf" id="4_jyhfs"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_sugp2"]
 
@@ -36,6 +37,377 @@ scale_min = 1.5
 scale_max = 3.5
 color = Color(1, 0.803922, 0.270588, 1)
 color_initial_ramp = SubResource("GradientTexture1D_qhqgy")
+
+[sub_resource type="Animation" id="Animation_tbgi4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GameOver:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(32, 72)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GameOver:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TryAgain:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MainMenu:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("TryAgain:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("MainMenu:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_tefeu"]
+resource_name = "appear_game_over_text"
+length = 0.75
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GameOver:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(32, 72)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GameOver:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.75),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_jyhfs"]
+resource_name = "ascend_game_over_text"
+length = 3.25
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GameOver:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2, 2.5, 3, 3.25),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(32, 72), Vector2(32, -20), Vector2(32, 20), Vector2(32, 10), Vector2(32, 15), Vector2(32, 16)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(3.25),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"pop_in_buttons"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_o6xl0"]
+resource_name = "pop_in_game_over_buttons"
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TryAgain:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MainMenu:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TryAgain:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MainMenu:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("..")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"button_idle_animation"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tefeu"]
+_data = {
+&"RESET": SubResource("Animation_tbgi4"),
+&"appear_game_over_text": SubResource("Animation_tefeu"),
+&"ascend_game_over_text": SubResource("Animation_jyhfs"),
+&"pop_in_game_over_buttons": SubResource("Animation_o6xl0")
+}
+
+[sub_resource type="Animation" id="Animation_85g3d"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GameOver:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(32, 17)]
+}
+
+[sub_resource type="Animation" id="Animation_tipki"]
+resource_name = "idle"
+length = 2.5
+loop_mode = 1
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GameOver:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.625, 1.875),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(32, 16), Vector2(32, 20), Vector2(32, 12)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_85g3d"]
+_data = {
+&"RESET": SubResource("Animation_85g3d"),
+&"idle": SubResource("Animation_tipki")
+}
+
+[sub_resource type="Animation" id="Animation_ya4ey"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MainMenu:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TryAgain:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_choun"]
+resource_name = "idle"
+length = 2.0
+loop_mode = 1
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MainMenu:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, -0.0872665, 0.0872665]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TryAgain:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0872665, -0.0872665]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ya4ey"]
+_data = {
+&"RESET": SubResource("Animation_ya4ey"),
+&"idle": SubResource("Animation_choun")
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_jyhfs"]
+font = ExtResource("4_jyhfs")
+font_size = 20
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jyhfs"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tipki"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tbgi4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tefeu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_85g3d"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_o6xl0"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_jyhfs"]
+
+[sub_resource type="Curve" id="Curve_tbgi4"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.798984, 0.910991), 0.0, 0.0, 0, 0, Vector2(1, 0.24754), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_y25gk"]
+curve = SubResource("Curve_tbgi4")
+
+[sub_resource type="Curve" id="Curve_tefeu"]
+_limits = [0.0, 10.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.493086, 3.27321), 0.0, 0.0, 0, 0, Vector2(1, 4.56809), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_l5glv"]
+curve = SubResource("Curve_tefeu")
+
+[sub_resource type="Gradient" id="Gradient_o6xl0"]
+colors = PackedColorArray(0.686297, 0.686297, 0.686297, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_eoqba"]
+gradient = SubResource("Gradient_o6xl0")
+
+[sub_resource type="Gradient" id="Gradient_tipki"]
+offsets = PackedFloat32Array(0, 0.256091, 0.509714, 0.741598, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.835957, 0.833527, 0.10596, 1, 0.863418, 0.540161, 9.62615e-07, 1, 1, 0.236192, 0.242918, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_qncy5"]
+gradient = SubResource("Gradient_tipki")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_85g3d"]
+particle_flag_disable_z = true
+angle_min = 1.07288e-05
+angle_max = 75.0
+angle_curve = SubResource("CurveTexture_l5glv")
+spread = 180.0
+initial_velocity_min = 15.0
+initial_velocity_max = 65.0
+gravity = Vector3(0, 0, 0)
+scale_max = 1.5
+color_ramp = SubResource("GradientTexture1D_qncy5")
+color_initial_ramp = SubResource("GradientTexture1D_eoqba")
+alpha_curve = SubResource("CurveTexture_y25gk")
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_o5qli")
@@ -92,8 +464,10 @@ position = Vector2(-14, 149)
 
 [node name="Asteroids" type="Node" parent="."]
 
+[node name="Lasers" type="Node" parent="."]
+
 [node name="AsteroidTimer" type="Timer" parent="."]
-wait_time = 0.95
+wait_time = 1.1
 autostart = true
 
 [node name="PlayerStuff" type="Node" parent="."]
@@ -119,4 +493,92 @@ lifetime = 0.21
 trail_lifetime = 1.0
 process_material = SubResource("ParticleProcessMaterial_tefeu")
 
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="UIAnimation" type="AnimationPlayer" parent="UI"]
+libraries = {
+&"": SubResource("AnimationLibrary_tefeu")
+}
+
+[node name="GameOverAnimation" type="AnimationPlayer" parent="UI"]
+libraries = {
+&"": SubResource("AnimationLibrary_85g3d")
+}
+
+[node name="ButtonAnimation" type="AnimationPlayer" parent="UI"]
+libraries = {
+&"": SubResource("AnimationLibrary_ya4ey")
+}
+
+[node name="GameOver" type="Label" parent="UI"]
+visible = false
+layout_mode = 0
+offset_left = 32.0
+offset_top = 17.0
+offset_right = 165.0
+offset_bottom = 67.0
+text = "you die"
+label_settings = SubResource("LabelSettings_jyhfs")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScoreText" type="Label" parent="UI"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 2.0
+offset_right = 112.0
+offset_bottom = 27.0
+theme_override_fonts/font = ExtResource("4_jyhfs")
+text = "Score: 0"
+label_settings = SubResource("LabelSettings_jyhfs")
+
+[node name="TryAgain" type="Button" parent="UI"]
+visible = false
+layout_mode = 0
+offset_left = 44.0
+offset_top = 78.0
+offset_right = 148.0
+offset_bottom = 124.0
+pivot_offset = Vector2(52, 23)
+theme_override_fonts/font = ExtResource("4_jyhfs")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_jyhfs")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_tipki")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_tbgi4")
+text = "try again"
+
+[node name="MainMenu" type="Button" parent="UI"]
+visible = false
+layout_mode = 0
+offset_left = 40.0
+offset_top = 126.0
+offset_right = 151.0
+offset_bottom = 172.0
+pivot_offset = Vector2(56, 23)
+theme_override_fonts/font = ExtResource("4_jyhfs")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_tefeu")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_85g3d")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_o6xl0")
+text = "main menu"
+
+[node name="GameOverAnimTimer" type="Timer" parent="UI"]
+one_shot = true
+
+[node name="AsteroidExplosion" type="GPUParticles2D" parent="."]
+position = Vector2(0, -4)
+emitting = false
+amount = 200
+amount_ratio = 0.8
+texture = SubResource("CanvasTexture_jyhfs")
+lifetime = 0.25
+one_shot = true
+explosiveness = 0.7
+process_material = SubResource("ParticleProcessMaterial_85g3d")
+
 [connection signal="timeout" from="AsteroidTimer" to="." method="_on_asteroid_timer_timeout"]
+[connection signal="timeout" from="UI/GameOverAnimTimer" to="." method="_on_game_over_anim_timer_timeout"]

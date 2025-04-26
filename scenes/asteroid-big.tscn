@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://choi4nouti1wy" path="res://scripts/asteroid-big.gd" id="1_osnpa"]
 [ext_resource type="Texture2D" uid="uid://qxdfhr1lvyg7" path="res://assets/sprites/asteroid-big.png" id="1_px3sp"]
 
-[node name="BigAsteroid" type="Area2D"]
+[node name="BigAsteroid" type="Area2D" groups=["asteroid"]]
 script = ExtResource("1_osnpa")
 metadata/_custom_type_script = "uid://cgnx2cehhifog"
 

@@ -35,6 +35,11 @@ project/assembly_name="asteroids"
 
 enabled=PackedStringArray("res://addons/AsepriteWizard/plugin.cfg")
 
+[global_group]
+
+player=""
+asteroid=""
+
 [input]
 
 up={

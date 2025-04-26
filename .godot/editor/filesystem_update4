@@ -1,3 +1,6 @@
+res://scenes/bullet.tscn
 res://scenes/main.tscn
 res://scenes/player.tscn
-res://scripts/player.gd
+res://scripts/bullet.gd
+res://scripts/main.gd
+res://scripts/asteroid-small.gd
