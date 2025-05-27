@@ -12,8 +12,10 @@ signal asteroid_hit(asteroid_size: String, position: Vector2)
 @onready var game_over_buttons_animation: AnimationPlayer = $UI/ButtonAnimation
 @onready var game_over_animation_timer: Timer = $UI/GameOverAnimTimer
 @onready var score_label: Label = $UI/ScoreText
-@onready var explosion_parts: GPUParticles2D = $AsteroidExplosion
+@onready var camera_manager: Node = $CameraManager
 
+var game_scene: PackedScene = preload("res://scenes/main.tscn")
+var main_menu_scene: PackedScene = preload("res://scenes/main_menu.tscn")
 var small_ast_scene: PackedScene = preload("res://scenes/asteroid-small.tscn")
 var medium_ast_scene: PackedScene = preload("res://scenes/asteroid-medium.tscn")
 var big_ast_scene: PackedScene = preload("res://scenes/asteroid-big.tscn")
@@ -35,6 +37,16 @@ func _process(_delta: float) -> void:
 		player.shoot_timer.start()
 		
 	score_label.text = "Score: " + str(score)
+	
+	if not game_over_buttons_animation.is_playing() and Input.is_action_just_pressed("shoot"):
+		ui_animation.stop()
+		try_again_button.visible = true
+		main_menu_button.visible = true
+		game_over_text.modulate.a = 1.0
+		try_again_button.modulate.a = 1.0
+		main_menu_button.modulate.a = 1.0
+		game_over_label_animation.play("idle")
+		game_over_buttons_animation.play("idle")
 
 
 func pop_in_buttons() -> void:
@@ -48,9 +60,6 @@ func button_idle_animation() -> void:
 	
 	
 func _spawn_asteroid(asteroid_size: String, ast_position: Vector2) -> void:
-	explosion_parts.global_position = ast_position
-	explosion_parts.emitting = true
-	
 	if asteroid_size == "big":
 		var new_ast1: Asteroid = medium_ast_scene.instantiate()
 		var new_ast2: Asteroid = medium_ast_scene.instantiate()
@@ -87,3 +96,11 @@ func _on_asteroid_timer_timeout() -> void:
 
 func _on_game_over_anim_timer_timeout() -> void:
 	ui_animation.play("ascend_game_over_text")
+
+
+func _on_try_again_pressed() -> void:
+	get_tree().change_scene_to_packed(game_scene)
+
+
+func _on_main_menu_pressed() -> void:
+	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")

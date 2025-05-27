@@ -2,6 +2,10 @@ extends Area2D
 class_name Asteroid
 
 @onready var main: Node = get_tree().current_scene
+@onready var explosion_parts: GPUParticles2D = $AsteroidExplosion
+@onready var explosion_to_queue_free: Timer = $ExplosionToQueueFree
+@onready var sprite: Sprite2D = $Sprite2D
+@onready var collision: CollisionPolygon2D = $CollisionPolygon2D
 
 var direction: Vector2 = Vector2(0, 0)
 var vertical_speed: float = 0

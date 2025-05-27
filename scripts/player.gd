@@ -24,7 +24,7 @@ var ship_on_screen_border_x: bool = false
 var ship_on_screen_border_y: bool = false
 var last_direction_faced: Vector2
 var alive: bool = true
-var hp: int = 100
+var hp: int = 3
 var can_be_damaged: bool = true
 var millisecond_even_or_odd: int = 0
 

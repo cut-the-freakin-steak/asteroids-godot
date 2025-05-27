@@ -18,5 +18,5 @@ func _physics_process(_delta: float):
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.is_in_group("asteroid"):
-		area.split_in_two()
+		area.call_deferred("split_in_two")
 		queue_free()

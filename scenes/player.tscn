@@ -15,8 +15,7 @@ metadata/_snap_count = 2
 curve = SubResource("Curve_g2els")
 
 [sub_resource type="Gradient" id="Gradient_g2els"]
-offsets = PackedFloat32Array(0, 0.66199)
-colors = PackedColorArray(0.632394, 0.632394, 0.632394, 1, 1, 1, 1, 1)
+colors = PackedColorArray(0.421134, 0.421134, 0.421134, 1, 1, 1, 1, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_qhqgy"]
 gradient = SubResource("Gradient_g2els")

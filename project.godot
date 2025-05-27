@@ -11,13 +11,17 @@ config_version=5
 [application]
 
 config/name="asteroids"
-run/main_scene="uid://bom7t7eaqjcyn"
+run/main_scene="uid://bxi5xb2fhp7qs"
 config/features=PackedStringArray("4.4", "Mobile")
 config/icon="res://icon.svg"
 
 [aseprite]
 
 import/import_plugin/default_automatic_importer="SpriteFrames"
+
+[autoload]
+
+PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd"
 
 [display]
 
@@ -33,7 +37,7 @@ project/assembly_name="asteroids"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/AsepriteWizard/plugin.cfg")
+enabled=PackedStringArray("res://addons/AsepriteWizard/plugin.cfg", "res://addons/phantom_camera/plugin.cfg")
 
 [global_group]
 
