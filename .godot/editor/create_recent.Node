@@ -1,8 +1,11 @@
-Timer
-Node
-AnimationPlayer
-AnimationTree
+CanvasModulate
 Control
+Node
+CheckButton
+AnimationPlayer
+Sprite2D
+Timer
+AnimationTree
 CanvasLayer
 GPUParticles2D
 Marker2D
@@ -10,5 +13,3 @@ PointLight2D
 Area2D
 CharacterBody2D
 CollisionShape2D
-Sprite2D
-Button

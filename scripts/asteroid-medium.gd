@@ -10,6 +10,11 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	super(delta)
+
+	if "is_paused" in main:
+		if main.is_paused:
+			return
+
 	rotation += rotation_speed * delta
 
 	position.x += horizontal_speed * delta

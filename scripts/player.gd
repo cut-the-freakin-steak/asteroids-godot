@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 signal damage_taken
 
-@onready var main: Node = get_tree().current_scene
+@onready var main: Node2D = get_tree().current_scene
 @onready var screen_size: float = get_viewport_rect().size.x
 
 @onready var sprite2d: Sprite2D = $Sprite2D
@@ -39,6 +39,11 @@ func _physics_process(delta) -> void:
 
 		if velocity == Vector2.ZERO:
 			return
+		
+	if main.is_paused:
+		back_particles.speed_scale = 0
+		back_particles.emitting = false
+		return
 
 	# screen wrapping
 	if global_position.x - 5 > screen_size:
@@ -185,6 +190,17 @@ func _on_damage_taken() -> void:
 		return
 
 	hp -= 1
+
+	match hp:
+		2:
+			main.get_node("UI/HealthUI/Health").play("lose_health_1")
+
+		1:
+			main.get_node("UI/HealthUI/Health").play("lose_health_2")
+
+		0:
+			main.get_node("UI/HealthUI/Health").play("lose_health_3")
+
 	if hp > 0:
 		can_be_damaged = false
 		i_frame_timer.start()
@@ -196,7 +212,7 @@ func _on_damage_taken() -> void:
 			velocity += Vector2(0, -200).rotated(rotation - deg_to_rad(90))
 			main.game_over.emit()
 
-		alive = false
+		alive = false	
 
 
 func _on_i_frame_timer_timeout() -> void:

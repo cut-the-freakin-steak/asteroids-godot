@@ -53,6 +53,10 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
+	if "is_paused" in main:
+		if main.is_paused:
+			return
+
 	position.y += vertical_speed * delta
 
 	if position.x > 250 or position.x < -50:

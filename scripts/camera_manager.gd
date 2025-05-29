@@ -29,10 +29,11 @@ func _physics_process(delta: float) -> void:
 
 
 func screen_shake(intensity: float, time: float) -> void:
-	randomize()
-	noise.seed = randi()
-	noise.frequency = 2.0
+	if Settings.screen_shake_on:
+		randomize()
+		noise.seed = randi()
+		noise.frequency = 2.0
 
-	shake_intensity = intensity
-	active_shake_time = time
-	shake_time = 0.0
+		shake_intensity = intensity
+		active_shake_time = time
+		shake_time = 0.0

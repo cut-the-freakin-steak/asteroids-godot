@@ -4,20 +4,27 @@ extends Control
 @onready var title_idle_animation: AnimationPlayer = $TitleIdle
 @onready var button_animation: AnimationPlayer = $Buttons
 
-var game: PackedScene = preload("res://scenes/main.tscn")
+@onready var title: Label = $Title
+@onready var play_button: Button = $Play
+@onready var settings_button: Button = $Settings
+
+var game_scene: PackedScene = load("res://scenes/main.tscn")
 var small_ast_scene: PackedScene = preload("res://scenes/asteroid-small.tscn")
 var medium_ast_scene: PackedScene = preload("res://scenes/asteroid-medium.tscn")
 var big_ast_scene: PackedScene = preload("res://scenes/asteroid-big.tscn")
 var asteroids: Array[PackedScene] = [small_ast_scene, medium_ast_scene, big_ast_scene]
 
+func _ready() -> void:
+	Settings.load_settings()
+
 func _process(_delta: float) -> void:
 	if not button_animation.is_playing() and Input.is_action_just_pressed("shoot"):
 		ui_animation.stop()
-		$Play.visible = true
-		$Settings.visible = true
-		$Title.modulate.a = 1.0
-		$Play.modulate.a = 1.0
-		$Settings.modulate.a = 1.0
+		play_button.visible = true
+		settings_button.visible = true
+		title.modulate.a = 1.0
+		play_button.modulate.a = 1.0
+		settings_button.modulate.a = 1.0
 		title_idle_animation.play("idle")
 		button_animation.play("idle")
 
@@ -41,8 +48,8 @@ func _on_asteroid_timer_timeout() -> void:
 
 
 func _on_play_pressed() -> void:
-	get_tree().change_scene_to_packed(game)
+	get_tree().change_scene_to_packed(game_scene)
 
 
 func _on_settings_pressed() -> void:	
-	pass # TODO: this shit
+	get_tree().change_scene_to_file("res://scenes/settings.tscn")
