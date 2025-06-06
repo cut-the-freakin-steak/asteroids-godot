@@ -1,13 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "HgpRlQNE0is=",
+  "dgSpecHash": "0UayRwhmVf4=",
   "success": true,
   "projectFilePath": "/Users/steak/asteroids/asteroids.csproj",
   "expectedPackageFiles": [
     "/Users/steak/.nuget/packages/godot.sourcegenerators/4.4.1/godot.sourcegenerators.4.4.1.nupkg.sha512",
     "/Users/steak/.nuget/packages/godotsharp/4.4.1/godotsharp.4.4.1.nupkg.sha512",
-    "/Users/steak/.nuget/packages/microsoft.netcore.app.runtime.osx-arm64/8.0.15/microsoft.netcore.app.runtime.osx-arm64.8.0.15.nupkg.sha512",
-    "/Users/steak/.nuget/packages/microsoft.aspnetcore.app.runtime.osx-arm64/8.0.15/microsoft.aspnetcore.app.runtime.osx-arm64.8.0.15.nupkg.sha512"
+    "/Users/steak/.nuget/packages/godotsharpeditor/4.4.1/godotsharpeditor.4.4.1.nupkg.sha512"
   ],
   "logs": []
 }

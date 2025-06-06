@@ -44,6 +44,9 @@ func _physics_process(delta) -> void:
 		back_particles.speed_scale = 0
 		back_particles.emitting = false
 		return
+	
+	else:
+		back_particles.speed_scale = 1
 
 	# screen wrapping
 	if global_position.x - 5 > screen_size:

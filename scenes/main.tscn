@@ -1187,8 +1187,8 @@ trail_lifetime = 1.0
 process_material = SubResource("ParticleProcessMaterial_tefeu")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-physics_interpolation_mode = 1
 position = Vector2(100, 100)
+editor_draw_limits = true
 
 [node name="PhantomCameraHost" type="Node" parent="Camera2D"]
 process_priority = 300
@@ -1231,7 +1231,7 @@ label_settings = SubResource("LabelSettings_ya4ey")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Resume" type="Button" parent="UI/PauseUI"]
+[node name="Resume" type="Button" parent="UI/PauseUI" groups=["button"]]
 visibility_layer = 2
 material = SubResource("CanvasItemMaterial_eb6dy")
 layout_mode = 0
@@ -1249,7 +1249,7 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_jkv2x")
 disabled = true
 text = "resume"
 
-[node name="Retry" type="Button" parent="UI/PauseUI"]
+[node name="Retry" type="Button" parent="UI/PauseUI" groups=["button"]]
 visibility_layer = 2
 material = SubResource("CanvasItemMaterial_trceg")
 layout_mode = 0
@@ -1267,7 +1267,7 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_jkv2x")
 disabled = true
 text = "retry"
 
-[node name="MainMenu" type="Button" parent="UI/PauseUI"]
+[node name="MainMenu" type="Button" parent="UI/PauseUI" groups=["button"]]
 visibility_layer = 2
 material = SubResource("CanvasItemMaterial_a8y0u")
 layout_mode = 0
@@ -1289,7 +1289,6 @@ text = "main menu"
 color = Color(0.319873, 0.319873, 0.319873, 1)
 
 [node name="HealthUI" type="Control" parent="UI"]
-visible = false
 anchors_preset = 0
 metadata/_edit_use_anchors_ = true
 
@@ -1301,8 +1300,27 @@ libraries = {
 [node name="Piece1" type="Sprite2D" parent="UI/HealthUI"]
 position = Vector2(185, 14)
 texture = ExtResource("8_ya4ey")
+metadata/_aseprite_wizard_interface_config_ = {
+"layer_section": false,
+"output_section": false,
+"pending_changes": {
+"embed_tex": true,
+"i_mode": 0,
+"keep_anim_length": false,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"player": "",
+"slice": "",
+"source": ""
+},
+"slice_section": false
+}
 
 [node name="Piece2" type="Sprite2D" parent="UI/HealthUI"]
+texture_filter = 1
 position = Vector2(191, 13)
 texture = ExtResource("9_eb6dy")
 
@@ -1348,7 +1366,7 @@ text = "Score: 0"
 label_settings = SubResource("LabelSettings_jyhfs")
 metadata/_edit_use_anchors_ = true
 
-[node name="TryAgain" type="Button" parent="UI"]
+[node name="TryAgain" type="Button" parent="UI" groups=["button"]]
 visible = false
 layout_mode = 0
 offset_left = 40.0
@@ -1364,7 +1382,7 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_choun")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_tbgi4")
 text = "try again"
 
-[node name="MainMenu" type="Button" parent="UI"]
+[node name="MainMenu" type="Button" parent="UI" groups=["button"]]
 visible = false
 layout_mode = 0
 offset_left = 40.0

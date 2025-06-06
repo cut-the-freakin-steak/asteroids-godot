@@ -1,5 +1,8 @@
 extends Control
 
+@onready var scene_root_node: Control = get_tree().current_scene
+@onready var main_menu_node: Control = get_tree().get_root().get_node("MainMenu")
+
 @onready var vsync_toggle: CheckButton = $VSyncToggle
 @onready var screen_shake_toggle: CheckButton = $ScreenShakeToggle
 @onready var hurricane_mode_toggle: CheckButton = $HurricaneModeToggle
@@ -64,5 +67,16 @@ func _on_hurricane_mode_toggle_toggled(toggled_on: bool) -> void:
 
 
 func _on_return_pressed() -> void:
+	scene_root_node.visible = false
+	var buttons = get_tree().get_nodes_in_group("button")
+	for button in buttons:
+		button.disabled = true
+		
+	main_menu_node.visible = true
+	var main_menu_buttons = main_menu_node.get_tree().get_nodes_in_group("button")
+	for button in main_menu_buttons:
+		button.disabled = false
+
 	Settings.save_settings()
-	get_tree().change_scene_to_packed(main_menu_scene)
+
+	queue_free()

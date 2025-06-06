@@ -41,19 +41,20 @@ func _ready():
 
 func _process(_delta: float) -> void:	
 	if Input.is_action_just_pressed("esc"):
-		if not is_paused:
-			is_paused = true
-			pause_ui.visible = true
-			resume_button.disabled = false
-			pause_retry_button.disabled = false
-			pause_main_menu_button.disabled = false
-		
-		else:
-			pause_ui.visible = false
-			resume_button.disabled = true
-			pause_retry_button.disabled = true
-			pause_main_menu_button.disabled = true
-			is_paused = false		
+		if not is_game_over:
+			if not is_paused:
+				is_paused = true
+				pause_ui.visible = true
+				resume_button.disabled = false
+				pause_retry_button.disabled = false
+				pause_main_menu_button.disabled = false
+			
+			else:
+				pause_ui.visible = false
+				resume_button.disabled = true
+				pause_retry_button.disabled = true
+				pause_main_menu_button.disabled = true
+				is_paused = false
 			
 	if is_paused:
 		return
@@ -66,7 +67,7 @@ func _process(_delta: float) -> void:
 		
 	score_label.text = "Score: " + str(score)
 	
-	if is_game_over and not game_over_buttons_animation.is_playing() and Input.is_action_just_pressed("shoot"):
+	if is_game_over and not game_over_buttons_animation.is_playing() and Input.is_action_just_pressed("skip_animation"):
 		game_over_anim_skipped = true
 		ui_animation.stop()
 		try_again_button.visible = true

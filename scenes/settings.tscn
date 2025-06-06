@@ -586,7 +586,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_r6d6q")
 
-[node name="Return" type="Button" parent="."]
+[node name="Return" type="Button" parent="." groups=["button"]]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.035
@@ -605,81 +605,75 @@ metadata/_edit_use_anchors_ = true
 [node name="VSync" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.1
-anchor_top = 0.395
-anchor_right = 0.52
-anchor_bottom = 0.585
-offset_left = -9.0
-offset_top = -51.0
-offset_right = 32.0
-offset_bottom = -51.0
+anchor_left = 0.055
+anchor_top = 0.14
+anchor_right = 0.68
+anchor_bottom = 0.33
 text = "v-sync"
 label_settings = SubResource("LabelSettings_r6d6q")
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
+metadata/_edit_use_anchors_ = true
 
-[node name="VSyncToggle" type="CheckButton" parent="."]
+[node name="VSyncToggle" type="CheckButton" parent="." groups=["button"]]
 layout_mode = 0
-offset_left = 144.0
-offset_top = 34.0
-offset_right = 188.0
-offset_bottom = 64.0
+anchor_left = 0.72
+anchor_top = 0.17
+anchor_right = 0.94
+anchor_bottom = 0.32
 theme_override_styles/focus = SubResource("StyleBoxEmpty_6wm04")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_r6d6q")
+metadata/_edit_use_anchors_ = true
 
 [node name="ScreenShake" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.1
-anchor_top = 0.395
-anchor_right = 0.52
-anchor_bottom = 0.585
-offset_left = -9.0
-offset_top = -11.0
-offset_right = 32.0
-offset_bottom = -11.0
+anchor_left = 0.055
+anchor_top = 0.34
+anchor_right = 0.68
+anchor_bottom = 0.53
 text = "screen shake"
 label_settings = SubResource("LabelSettings_r6d6q")
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
+metadata/_edit_use_anchors_ = true
 
-[node name="ScreenShakeToggle" type="CheckButton" parent="."]
+[node name="ScreenShakeToggle" type="CheckButton" parent="." groups=["button"]]
 layout_mode = 0
-offset_left = 144.0
-offset_top = 74.0
-offset_right = 188.0
-offset_bottom = 104.0
+anchor_left = 0.72
+anchor_top = 0.37
+anchor_right = 0.94
+anchor_bottom = 0.52
 theme_override_styles/focus = SubResource("StyleBoxEmpty_6wm04")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_r6d6q")
 button_pressed = true
+metadata/_edit_use_anchors_ = true
 
 [node name="HurricaneMode" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.1
-anchor_top = 0.395
-anchor_right = 0.52
-anchor_bottom = 0.585
-offset_left = -9.0
-offset_top = 29.0
-offset_right = 32.0
-offset_bottom = 29.0
+anchor_left = 0.055
+anchor_top = 0.54
+anchor_right = 0.68
+anchor_bottom = 0.73
 text = "hurricane"
 label_settings = SubResource("LabelSettings_6wm04")
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
+metadata/_edit_use_anchors_ = true
 
-[node name="HurricaneModeToggle" type="CheckButton" parent="."]
+[node name="HurricaneModeToggle" type="CheckButton" parent="." groups=["button"]]
 layout_mode = 0
-offset_left = 144.0
-offset_top = 114.0
-offset_right = 188.0
-offset_bottom = 144.0
+anchor_left = 0.72
+anchor_top = 0.57
+anchor_right = 0.94
+anchor_bottom = 0.72
 theme_override_styles/focus = SubResource("StyleBoxEmpty_f4mfi")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_es4n0")
+metadata/_edit_use_anchors_ = true
 
 [connection signal="pressed" from="Return" to="." method="_on_return_pressed"]
 [connection signal="toggled" from="VSyncToggle" to="." method="_on_v_sync_toggle_toggled"]
