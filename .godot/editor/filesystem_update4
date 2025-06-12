@@ -1,4 +1,7 @@
 res://scenes/main_menu.tscn
 res://addons/phantom_camera/themes/theme.tres
-res://scenes/settings.tscn
 res://scenes/main.tscn
+res://scenes/settings.tscn
+res://scenes/asteroid-small.tscn
+res://scenes/asteroid-medium.tscn
+res://scenes/asteroid-big.tscn

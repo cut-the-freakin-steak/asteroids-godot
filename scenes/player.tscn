@@ -35,8 +35,13 @@ scale_max = 3.5
 color = Color(1, 0.811765, 0.270588, 1)
 color_initial_ramp = SubResource("GradientTexture1D_qhqgy")
 
-[node name="Player" type="CharacterBody2D" groups=["player"]]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("sprite", "back_particles", "i_frame_timer", "shoot_timer", "ship_thruster_sfx") groups=["player"]]
 script = ExtResource("1_3vyb7")
+sprite = NodePath("Sprite2D")
+back_particles = NodePath("BackFireParticles")
+i_frame_timer = NodePath("IFrameTimer")
+shoot_timer = NodePath("ShootTimer")
+ship_thruster_sfx = NodePath("Audio/ShipThrusterSFX")
 
 [node name="BackFireParticles" type="GPUParticles2D" parent="."]
 position = Vector2(-1, 0)
@@ -66,5 +71,22 @@ one_shot = true
 [node name="IFrameTimer" type="Timer" parent="."]
 wait_time = 2.0
 one_shot = true
+
+[node name="Audio" type="Node" parent="."]
+
+[node name="FmodBankLoader" type="FmodBankLoader" parent="Audio"]
+bank_paths = ["res://fmod-stuff/Desktop/Master.strings.bank", "res://fmod-stuff/Desktop/Master.bank", "res://fmod-stuff/Desktop/SFX.bank", "res://fmod-stuff/Desktop/Music.bank"]
+
+[node name="ShipThrusterSFX" type="FmodEventEmitter2D" parent="Audio"]
+event_name = "event:/SFX/ShipThrusters"
+event_guid = "{672d0473-ec35-4b0f-a2f1-4a2cf42c36ac}"
+attached = false
+fmod_parameters/PitchParam/id = -4137752462533614050
+fmod_parameters/PitchParam = 0.0
+fmod_parameters/PitchParam/variant_type = 3
+fmod_parameters/ShouldLoop/id = 6697081798805990338
+fmod_parameters/ShouldLoop = "No"
+fmod_parameters/ShouldLoop/labels = PackedStringArray("No", "Yes")
+fmod_parameters/ShouldLoop/variant_type = 4
 
 [connection signal="timeout" from="IFrameTimer" to="." method="_on_i_frame_timer_timeout"]

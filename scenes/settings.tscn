@@ -1,7 +1,10 @@
-[gd_scene load_steps=24 format=4 uid="uid://dh7ei7acq78el"]
+[gd_scene load_steps=25 format=4 uid="uid://dh7ei7acq78el"]
 
 [ext_resource type="FontFile" uid="uid://cxndbgxf3g7sc" path="res://assets/Brush Script.ttf" id="1_5p8wc"]
 [ext_resource type="Script" uid="uid://bigdygbktcrva" path="res://scripts/settings.gd" id="1_r6d6q"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_r6d6q"]
+light_mode = 1
 
 [sub_resource type="Image" id="Image_ekxnf"]
 data = {
@@ -576,7 +579,7 @@ font_size = 30
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_es4n0"]
 
-[node name="Settings" type="Control"]
+[node name="Settings" type="Control" node_paths=PackedStringArray("scene_root_node")]
 custom_minimum_size = Vector2(3.52, -11.16)
 layout_mode = 3
 anchors_preset = 15
@@ -585,8 +588,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_r6d6q")
+scene_root_node = NodePath(".")
 
 [node name="Return" type="Button" parent="." groups=["button"]]
+material = SubResource("CanvasItemMaterial_r6d6q")
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.035
@@ -603,6 +608,7 @@ text = "return"
 metadata/_edit_use_anchors_ = true
 
 [node name="VSync" type="Label" parent="."]
+material = SubResource("CanvasItemMaterial_r6d6q")
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.055
@@ -617,6 +623,7 @@ autowrap_mode = 3
 metadata/_edit_use_anchors_ = true
 
 [node name="VSyncToggle" type="CheckButton" parent="." groups=["button"]]
+material = SubResource("CanvasItemMaterial_r6d6q")
 layout_mode = 0
 anchor_left = 0.72
 anchor_top = 0.17
@@ -627,6 +634,7 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_r6d6q")
 metadata/_edit_use_anchors_ = true
 
 [node name="ScreenShake" type="Label" parent="."]
+material = SubResource("CanvasItemMaterial_r6d6q")
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.055
@@ -641,6 +649,7 @@ autowrap_mode = 3
 metadata/_edit_use_anchors_ = true
 
 [node name="ScreenShakeToggle" type="CheckButton" parent="." groups=["button"]]
+material = SubResource("CanvasItemMaterial_r6d6q")
 layout_mode = 0
 anchor_left = 0.72
 anchor_top = 0.37
@@ -652,6 +661,7 @@ button_pressed = true
 metadata/_edit_use_anchors_ = true
 
 [node name="HurricaneMode" type="Label" parent="."]
+material = SubResource("CanvasItemMaterial_r6d6q")
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.055
@@ -666,6 +676,7 @@ autowrap_mode = 3
 metadata/_edit_use_anchors_ = true
 
 [node name="HurricaneModeToggle" type="CheckButton" parent="." groups=["button"]]
+material = SubResource("CanvasItemMaterial_r6d6q")
 layout_mode = 0
 anchor_left = 0.72
 anchor_top = 0.57
@@ -674,6 +685,16 @@ anchor_bottom = 0.72
 theme_override_styles/focus = SubResource("StyleBoxEmpty_f4mfi")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_es4n0")
 metadata/_edit_use_anchors_ = true
+
+[node name="Audio" type="Node" parent="."]
+
+[node name="FmodBankLoader" type="FmodBankLoader" parent="Audio"]
+bank_paths = ["res://fmod-stuff/Desktop/Master.strings.bank", "res://fmod-stuff/Desktop/Master.bank", "res://fmod-stuff/Desktop/SFX.bank", "res://fmod-stuff/Desktop/Music.bank"]
+
+[node name="ButtonClick" type="FmodEventEmitter2D" parent="Audio"]
+event_name = "event:/SFX/ButtonClick"
+event_guid = "{3c356a64-c24e-43c9-9683-14a7cae0fd82}"
+attached = false
 
 [connection signal="pressed" from="Return" to="." method="_on_return_pressed"]
 [connection signal="toggled" from="VSyncToggle" to="." method="_on_v_sync_toggle_toggled"]

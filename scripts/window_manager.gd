@@ -16,20 +16,19 @@ func _process(_delta: float):
 	# change the window_size variable to match the new size
 		window_size = DisplayServer.window_get_size()
 
-#! DONT PAY ATTENTION TO ANYTHING BELOW THIS COMMENT
+#! DONT PAY ATTENTION TO ANYTHING BELOW THIS COMMENT, THIS IS JUST FOR FUNNY MODE
 
-var shake_intensity: float = 0.0
-var active_shake_time: float = 0.0
-
-var shake_decay: float = 5.0
-
-var shake_time: float = 0.0
-var shake_time_speed: float = 20.0
-
-var noise = FastNoiseLite.new()
-
-func _physics_process(_delta: float) -> void:
-	pass
+# var shake_intensity: float = 0.0
+# var active_shake_time: float = 0.0
+#
+# var shake_decay: float = 5.0
+#
+# var shake_time: float = 0.0
+# var shake_time_speed: float = 20.0
+#
+# var noise = FastNoiseLite.new()
+#
+# func _physics_process(_delta: float) -> void:
 	# window_shake(1000, 0.2)
 	# if active_shake_time > 0:
 	# 	shake_time += shake_time_speed * delta
@@ -44,14 +43,14 @@ func _physics_process(_delta: float) -> void:
 	#
 	# else:
 	# 	DisplayServer.window_set_position(lerp(DisplayServer.window_get_position(), Vector2(100, 100), 10.5 * delta))
-
-
-func window_shake(intensity: float, time: float) -> void:
-	if Settings.screen_shake_on:
-		randomize()
-		noise.seed = randi()
-		noise.frequency = 2.0
-
-		shake_intensity = intensity
-		active_shake_time = time
-		shake_time = 0.0
+#
+#
+# func window_shake(intensity: float, time: float) -> void:
+# 	if Settings.screen_shake_on:
+# 		randomize()
+# 		noise.seed = randi()
+# 		noise.frequency = 2.0
+#
+# 		shake_intensity = intensity
+# 		active_shake_time = time
+# 		shake_time = 0.0

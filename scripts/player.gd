@@ -4,18 +4,20 @@ signal damage_taken
 
 @onready var main: Node2D = get_tree().current_scene
 @onready var screen_size: float = get_viewport_rect().size.x
-
-@onready var sprite2d: Sprite2D = $Sprite2D
-@onready var sprite_dimensions: Vector2 = get_visible_sprite_dimensions(sprite2d)
-@onready var back_particles: GPUParticles2D = $BackFireParticles
-
-@onready var i_frame_timer: Timer = $IFrameTimer
-@onready var shoot_timer: Timer = $ShootTimer
+@onready var sprite_dimensions: Vector2 = get_visible_sprite_dimensions(sprite)
 
 @onready var screen_wrap_stuff: Node2D = main.get_node("PlayerStuff/SWStuff")
 @onready var opposite_screen_sprite: Sprite2D = main.get_node("PlayerStuff/SWStuff/OtherSideSprite")
 @onready var other_side_back_particles: GPUParticles2D = main.get_node("PlayerStuff/SWStuff/OpBackFireParticles")
 @onready var game_over_text: Label = main.get_node("UI/GameOver")
+
+@export var sprite: Sprite2D
+@export var back_particles: GPUParticles2D
+
+@export var i_frame_timer: Timer
+@export var shoot_timer: Timer
+
+@export var ship_thruster_sfx: FmodEventEmitter2D
 
 var max_speed: int = 100
 var acceleration: float = 2.5
@@ -30,6 +32,20 @@ var millisecond_even_or_odd: int = 0
 
 func _ready() -> void:
 	damage_taken.connect(_on_damage_taken)
+
+
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("up"):
+		ship_thruster_sfx.set_parameter("ShouldLoop", "Yes")
+		ship_thruster_sfx.play()
+		
+	if Input.is_action_pressed("up"):
+		if ship_thruster_sfx.get_parameter("PitchParam") < 0.20:
+			ship_thruster_sfx.set_parameter("PitchParam", ship_thruster_sfx.get_parameter("PitchParam") + (0.10 * delta))
+	
+	if not Input.is_action_pressed("up") and ship_thruster_sfx.get_parameter("ShouldLoop") == "Yes":
+		ship_thruster_sfx.set_parameter("ShouldLoop", "No")
+		ship_thruster_sfx.set_parameter("PitchParam", 0.0)
 
 
 func _physics_process(delta) -> void:
@@ -90,18 +106,18 @@ func _physics_process(delta) -> void:
 		if i_frame_timer.time_left > 0.5:
 			millisecond_even_or_odd = int(str(i_frame_timer.time_left).split('.')[1]) % 3
 			if millisecond_even_or_odd == 0:
-				sprite2d.visible = false
+				sprite.visible = false
 
 			else:
-				sprite2d.visible = true
+				sprite.visible = true
 
 		elif i_frame_timer.time_left > 0:
 			millisecond_even_or_odd = int(str(i_frame_timer.time_left).split('.')[1]) % 2
 			if millisecond_even_or_odd == 0:
-				sprite2d.visible = false
+				sprite.visible = false
 
 			else:
-				sprite2d.visible = true
+				sprite.visible = true
 
 	move_and_slide()
 
@@ -142,7 +158,7 @@ func show_screen_wrapped_ship() -> void:
 
 	# y-axis
 	# bottom
-	if global_position.y >= screen_size - (float(sprite2d.texture.get_height()) / 2 + 8):
+	if global_position.y >= screen_size - (float(sprite.texture.get_height()) / 2 + 8):
 		ship_on_screen_border_y = true
 		screen_wrap_stuff.global_position = Vector2(position.x, position.y - screen_size)
 		opposite_screen_sprite.visible = true
@@ -155,7 +171,7 @@ func show_screen_wrapped_ship() -> void:
 			other_side_back_particles.emitting = false
 
 		# top
-	elif global_position.y <= 0 + (float(sprite2d.texture.get_height()) / 2 - 8):
+	elif global_position.y <= 0 + (float(sprite.texture.get_height()) / 2 - 8):
 		ship_on_screen_border_y = true
 		screen_wrap_stuff.global_position = Vector2(position.x, position.y + screen_size)
 		opposite_screen_sprite.visible = true
@@ -177,11 +193,11 @@ func show_screen_wrapped_ship() -> void:
 		other_side_back_particles.emitting = false
 
 
-func get_visible_sprite_dimensions(sprite: Sprite2D) -> Vector2:
-	if sprite.texture == null:
+func get_visible_sprite_dimensions(sprite2d: Sprite2D) -> Vector2:
+	if sprite2d.texture == null:
 		return Vector2(0, 0)
 
-	var image: Image = sprite.texture.get_image()
+	var image: Image = sprite2d.texture.get_image()
 	var used_rect: Rect2i = image.get_used_rect()
 	var visible_pixels_v2: Vector2 = Vector2(used_rect.size.x, used_rect.size.y)
 
@@ -219,5 +235,5 @@ func _on_damage_taken() -> void:
 
 
 func _on_i_frame_timer_timeout() -> void:
-	sprite2d.visible = true
+	sprite.visible = true
 	can_be_damaged = true

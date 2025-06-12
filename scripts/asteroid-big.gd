@@ -1,7 +1,8 @@
 extends Asteroid
 
-var camera_manager
+@export var explosion_sfx: FmodEventEmitter2D
 
+var camera_manager: Node
 var rotation_speed: int = randi_range(1, 2)
 
 func _ready() -> void:
@@ -31,6 +32,7 @@ func split_in_two() -> void:
 	explosion_parts.emitting = true
 	sprite.visible = false
 	collision.disabled = true
+	explosion_sfx.play()
 	explosion_to_queue_free.start()
 	camera_manager.screen_shake(2.5, 0.3)
 

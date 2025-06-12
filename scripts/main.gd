@@ -4,6 +4,7 @@ signal game_over
 signal asteroid_hit(asteroid_size: String, position: Vector2)
 
 @onready var player: CharacterBody2D = $PlayerStuff/Player
+@onready var scene_root_node: Node = get_tree().current_scene
 @onready var game_over_text: Label = $UI/GameOver
 @onready var try_again_button: Button = $UI/TryAgain
 @onready var main_menu_button: Button = $UI/MainMenu
@@ -14,12 +15,15 @@ signal asteroid_hit(asteroid_size: String, position: Vector2)
 @onready var score_label: Label = $UI/ScoreText
 @onready var camera_manager: Node = $CameraManager
 @onready var pause_ui: Control = $UI/PauseUI
+@onready var pause_label: Label = $UI/PauseUI/Pause
 @onready var resume_button: Button = $UI/PauseUI/Resume
-@onready var pause_retry_button: Button = $UI/PauseUI/Retry
+@onready var pause_settings_button: Button = $UI/PauseUI/Settings
 @onready var pause_main_menu_button: Button = $UI/PauseUI/MainMenu
+@onready var button_click_sound: FmodEventEmitter2D = $Audio/ButtonClick
 
-var game_scene: PackedScene = preload("res://scenes/main.tscn")
 var main_menu_scene: PackedScene = load("res://scenes/main_menu.tscn")
+var settings_scene: PackedScene = preload("res://scenes/settings.tscn")
+var game_scene: PackedScene = preload("res://scenes/main.tscn")
 var small_ast_scene: PackedScene = preload("res://scenes/asteroid-small.tscn")
 var medium_ast_scene: PackedScene = preload("res://scenes/asteroid-medium.tscn")
 var big_ast_scene: PackedScene = preload("res://scenes/asteroid-big.tscn")
@@ -46,13 +50,13 @@ func _process(_delta: float) -> void:
 				is_paused = true
 				pause_ui.visible = true
 				resume_button.disabled = false
-				pause_retry_button.disabled = false
+				pause_settings_button.disabled = false
 				pause_main_menu_button.disabled = false
 			
 			else:
 				pause_ui.visible = false
 				resume_button.disabled = true
-				pause_retry_button.disabled = true
+				pause_settings_button.disabled = true
 				pause_main_menu_button.disabled = true
 				is_paused = false
 			
@@ -80,7 +84,7 @@ func _process(_delta: float) -> void:
 		
 	if Settings.hurricane_mode:
 		camera_manager.screen_shake(3.5, 0.2)
-
+		
 
 func pop_in_buttons() -> void:
 	if game_over_anim_skipped:
@@ -137,6 +141,27 @@ func _on_asteroid_timer_timeout() -> void:
 
 func _on_game_over_anim_timer_timeout() -> void:
 	ui_animation.play("ascend_game_over_text")
+
+
+func _on_resume_pressed() -> void:
+	pause_ui.visible = false
+	resume_button.disabled = true
+	pause_settings_button.disabled = true
+	pause_main_menu_button.disabled = true
+	is_paused = false
+
+
+func _on_settings_pressed() -> void:
+	pause_label.visible = false
+	resume_button.visible = false
+	pause_settings_button.visible = false
+	pause_main_menu_button.visible = false
+
+	var buttons = get_tree().get_nodes_in_group("button")
+	for button in buttons:
+		button.disabled = true
+
+	get_tree().get_root().add_child(settings_scene.instantiate())
 
 
 func _on_try_again_pressed() -> void:

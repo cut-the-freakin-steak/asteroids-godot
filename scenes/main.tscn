@@ -1207,8 +1207,9 @@ draw_limits = true
 [node name="UI" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="PauseUI" type="Control" parent="UI"]
 visible = false
@@ -1216,29 +1217,31 @@ z_index = 1
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true
 
 [node name="Pause" type="Label" parent="UI/PauseUI"]
 light_mask = 2
 visibility_layer = 2
 material = SubResource("CanvasItemMaterial_ya4ey")
 layout_mode = 0
-offset_left = 35.0
-offset_top = 4.0
-offset_right = 168.0
-offset_bottom = 54.0
+anchor_left = 0.875
+anchor_top = 0.1
+anchor_right = 4.2
+anchor_bottom = 1.35
 text = "paused"
 label_settings = SubResource("LabelSettings_ya4ey")
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="Resume" type="Button" parent="UI/PauseUI" groups=["button"]]
 visibility_layer = 2
 material = SubResource("CanvasItemMaterial_eb6dy")
 layout_mode = 0
-offset_left = 45.0
-offset_top = 56.0
-offset_right = 156.0
-offset_bottom = 102.0
+anchor_left = 1.125
+anchor_top = 1.4
+anchor_right = 3.9
+anchor_bottom = 2.55
 pivot_offset = Vector2(52, 23)
 theme_override_fonts/font = SubResource("FontFile_ya4ey")
 theme_override_font_sizes/font_size = 30
@@ -1248,15 +1251,16 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_a8y0u")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_jkv2x")
 disabled = true
 text = "resume"
+metadata/_edit_use_anchors_ = true
 
-[node name="Retry" type="Button" parent="UI/PauseUI" groups=["button"]]
+[node name="Settings" type="Button" parent="UI/PauseUI" groups=["button"]]
 visibility_layer = 2
 material = SubResource("CanvasItemMaterial_trceg")
 layout_mode = 0
-offset_left = 45.0
-offset_top = 103.0
-offset_right = 156.0
-offset_bottom = 149.0
+anchor_left = 1.125
+anchor_top = 2.575
+anchor_right = 3.9
+anchor_bottom = 3.725
 pivot_offset = Vector2(52, 23)
 theme_override_fonts/font = SubResource("FontFile_ya4ey")
 theme_override_font_sizes/font_size = 30
@@ -1265,16 +1269,17 @@ theme_override_styles/hover = SubResource("StyleBoxEmpty_trceg")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_a8y0u")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_jkv2x")
 disabled = true
-text = "retry"
+text = "settings"
+metadata/_edit_use_anchors_ = true
 
 [node name="MainMenu" type="Button" parent="UI/PauseUI" groups=["button"]]
 visibility_layer = 2
 material = SubResource("CanvasItemMaterial_a8y0u")
 layout_mode = 0
-offset_left = 45.0
-offset_top = 149.0
-offset_right = 156.0
-offset_bottom = 195.0
+anchor_left = 1.125
+anchor_top = 3.725
+anchor_right = 3.9
+anchor_bottom = 4.875
 pivot_offset = Vector2(56, 23)
 theme_override_fonts/font = SubResource("FontFile_jkv2x")
 theme_override_font_sizes/font_size = 30
@@ -1284,6 +1289,7 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_dp3eg")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_0ld40")
 disabled = true
 text = "main menu"
+metadata/_edit_use_anchors_ = true
 
 [node name="PauseMenuCanvas" type="CanvasModulate" parent="UI/PauseUI"]
 color = Color(0.319873, 0.319873, 0.319873, 1)
@@ -1347,13 +1353,14 @@ libraries = {
 visible = false
 layout_mode = 0
 offset_left = 32.0
-offset_top = 17.0
+offset_top = 72.0
 offset_right = 165.0
-offset_bottom = 67.0
+offset_bottom = 122.0
 text = "you die"
 label_settings = SubResource("LabelSettings_tipki")
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="ScoreText" type="Label" parent="UI"]
 layout_mode = 0
@@ -1381,6 +1388,7 @@ theme_override_styles/hover = SubResource("StyleBoxEmpty_tipki")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_choun")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_tbgi4")
 text = "try again"
+metadata/_edit_use_anchors_ = true
 
 [node name="MainMenu" type="Button" parent="UI" groups=["button"]]
 visible = false
@@ -1397,13 +1405,24 @@ theme_override_styles/hover = SubResource("StyleBoxEmpty_85g3d")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_ya4ey")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_o6xl0")
 text = "main menu"
+metadata/_edit_use_anchors_ = true
 
 [node name="GameOverAnimTimer" type="Timer" parent="UI"]
 one_shot = true
 
+[node name="Audio" type="Node" parent="."]
+
+[node name="FmodBankLoader" type="FmodBankLoader" parent="Audio"]
+bank_paths = ["res://fmod-stuff/Desktop/Master.strings.bank", "res://fmod-stuff/Desktop/Master.bank", "res://fmod-stuff/Desktop/SFX.bank", "res://fmod-stuff/Desktop/Music.bank"]
+
+[node name="ButtonClick" type="FmodEventEmitter2D" parent="Audio"]
+event_name = "event:/SFX/ButtonClick"
+event_guid = "{3c356a64-c24e-43c9-9683-14a7cae0fd82}"
+attached = false
+
 [connection signal="timeout" from="AsteroidTimer" to="." method="_on_asteroid_timer_timeout"]
-[connection signal="pressed" from="UI/PauseUI/Resume" to="." method="_on_try_again_pressed"]
-[connection signal="pressed" from="UI/PauseUI/Retry" to="." method="_on_try_again_pressed"]
+[connection signal="pressed" from="UI/PauseUI/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="UI/PauseUI/Settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="UI/PauseUI/MainMenu" to="." method="_on_main_menu_pressed"]
 [connection signal="pressed" from="UI/TryAgain" to="." method="_on_try_again_pressed"]
 [connection signal="pressed" from="UI/MainMenu" to="." method="_on_main_menu_pressed"]

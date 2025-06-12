@@ -1,13 +1,19 @@
 extends Control
 
-@onready var scene_root_node: Control = get_tree().current_scene
-@onready var main_menu_node: Control = get_tree().get_root().get_node("MainMenu")
+@export var scene_root_node: Control
+@onready var main_menu_node: Control = get_node("/root").get_node_or_null("MainMenu")
+@onready var game_scene_node: Node2D = get_node("/root").get_node_or_null("Main")
 
 @onready var vsync_toggle: CheckButton = $VSyncToggle
 @onready var screen_shake_toggle: CheckButton = $ScreenShakeToggle
 @onready var hurricane_mode_toggle: CheckButton = $HurricaneModeToggle
 
-var main_menu_scene: PackedScene = load("res://scenes/main_menu.tscn")
+func _on_return_pressed() -> void:
+	exit_settings()
+
+func _process(_delta: float) -> void:
+	if Input.is_action_just_pressed("esc"):
+		exit_settings()
 
 func _ready() -> void:
 	match Settings.vsync_on:
@@ -32,13 +38,35 @@ func _ready() -> void:
 			
 		false:
 			hurricane_mode_toggle.button_pressed = false
-			
+	
+	
+func exit_settings() -> void:
+	Settings.save_settings()
 
-func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed("esc"):
-		Settings.save_settings()
-		get_tree().change_scene_to_packed(main_menu_scene)
+	scene_root_node.visible = false
+	var buttons = get_tree().get_nodes_in_group("button")
+	for button in buttons:
+		button.disabled = true
+		
+	if main_menu_node != null:
+		main_menu_node.visible = true
+
+		var main_menu_buttons = main_menu_node.get_tree().get_nodes_in_group("button")
+		for button in main_menu_buttons:
+			button.disabled = false
+
+	if game_scene_node != null:
+		game_scene_node.pause_label.visible = true
+		game_scene_node.resume_button.visible = true
+		game_scene_node.pause_settings_button.visible = true
+		game_scene_node.pause_main_menu_button.visible = true
+
+		var game_scene_buttons = game_scene_node.get_tree().get_nodes_in_group("button")
+		for button in game_scene_buttons:
+			button.disabled = false
 			
+	queue_free()
+
 
 func _on_v_sync_toggle_toggled(toggled_on: bool) -> void:
 	if toggled_on:
@@ -49,6 +77,8 @@ func _on_v_sync_toggle_toggled(toggled_on: bool) -> void:
 		DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED)
 		Settings.vsync_on = false
 
+	Settings.save_settings()
+
 
 func _on_screen_shake_toggle_toggled(toggled_on: bool) -> void:
 	if toggled_on:
@@ -56,6 +86,8 @@ func _on_screen_shake_toggle_toggled(toggled_on: bool) -> void:
 	
 	else:
 		Settings.screen_shake_on = false
+
+	Settings.save_settings()
 
 
 func _on_hurricane_mode_toggle_toggled(toggled_on: bool) -> void:
@@ -65,18 +97,4 @@ func _on_hurricane_mode_toggle_toggled(toggled_on: bool) -> void:
 	else:
 		Settings.hurricane_mode = false
 
-
-func _on_return_pressed() -> void:
-	scene_root_node.visible = false
-	var buttons = get_tree().get_nodes_in_group("button")
-	for button in buttons:
-		button.disabled = true
-		
-	main_menu_node.visible = true
-	var main_menu_buttons = main_menu_node.get_tree().get_nodes_in_group("button")
-	for button in main_menu_buttons:
-		button.disabled = false
-
 	Settings.save_settings()
-
-	queue_free()
