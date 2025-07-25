@@ -1,3 +1,5 @@
+TextureRect
+Label
 HSlider
 FmodEventEmitter2D
 FmodListener2D
@@ -11,5 +13,3 @@ CanvasModulate
 Control
 CheckButton
 AnimationPlayer
-Sprite2D
-AnimationTree

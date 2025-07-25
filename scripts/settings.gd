@@ -12,9 +12,9 @@ extends Control
 @export var music_volume_slider: HSlider
 @export var sfx_volume_slider: HSlider
 
-var master_bus: FmodBus = FmodServer.get_bus("bus:/")
-var music_bus: FmodBus = FmodServer.get_bus("bus:/Music")
-var sfx_bus: FmodBus = FmodServer.get_bus("bus:/SFX")
+@onready var master_bus: FmodBus = FmodServer.get_bus("bus:/")
+@onready var music_bus: FmodBus = FmodServer.get_bus("bus:/Music")
+@onready var sfx_bus: FmodBus = FmodServer.get_bus("bus:/SFX")
 
 # check if we gotta go
 func _process(_delta: float) -> void:
@@ -46,29 +46,26 @@ func _ready() -> void:
 		false:
 			hurricane_mode_toggle.button_pressed = false
 
+	master_bus.volume = Settings.master_volume
 	master_volume_slider.value = Settings.master_volume
 
+	music_bus.volume = Settings.music_volume
 	music_volume_slider.value = Settings.music_volume
 
+	sfx_bus.volume = Settings.sfx_volume
 	sfx_volume_slider.value = Settings.sfx_volume
 	
 # save all settings and restore menus
 func exit_settings() -> void:
 	Settings.save_settings()
 
-	scene_root_node.visible = false
-	var buttons = get_tree().get_nodes_in_group("button")
-	for button in buttons:
-		button.disabled = true
-		
-	if main_menu_node != null:
-		main_menu_node.visible = true
+	dissapear_node(scene_root_node)
 
-		var main_menu_buttons = main_menu_node.get_tree().get_nodes_in_group("button")
-		for button in main_menu_buttons:
-			button.disabled = false
+	if main_menu_node != null:
+		appear_node(main_menu_node)
 
 	if game_scene_node != null:
+		# appear_root_node() wouldnt work here because it doesnt have the following 4 lines of code
 		game_scene_node.pause_label.visible = true
 		game_scene_node.resume_button.visible = true
 		game_scene_node.pause_settings_button.visible = true
@@ -137,3 +134,18 @@ func _on_music_slider_value_changed(value: float) -> void:
 func _on_sfx_slider_value_changed(value: float) -> void:
 	Settings.sfx_volume = value
 	sfx_bus.volume = Settings.sfx_volume
+	
+	
+func dissapear_node(node: Node) -> void:
+	node.visible = false
+
+	var buttons = node.get_tree().get_nodes_in_group("button")
+	for button in buttons:
+		button.disabled = true
+	
+func appear_node(node: Node) -> void:
+	node.visible = true
+
+	var buttons = node.get_tree().get_nodes_in_group("button")
+	for button in buttons:
+		button.disabled = false

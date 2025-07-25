@@ -1,8 +1,3 @@
-res://scenes/sfx_manager.tscn
-res://addons/phantom_camera/themes/theme.tres
+res://scripts/credits.gd
 res://scenes/main_menu.tscn
-res://scenes/music_manager.tscn
-res://scenes/bank_loader_fmod.tscn
-res://scenes/settings.tscn
-res://scripts/settings.gd
-res://scripts/global_settings_singleton.gd
+res://addons/phantom_camera/themes/theme.tres

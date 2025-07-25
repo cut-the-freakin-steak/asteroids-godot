@@ -33,7 +33,7 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
-	if main.is_game_over:
+	if main.is_game_over or Input.is_action_pressed("decelerate"):
 		SFXManager.ship_thruster.stop()
 		
 	else:
@@ -42,6 +42,7 @@ func _process(delta: float) -> void:
 			SFXManager.ship_thruster.play()
 			
 		if Input.is_action_pressed("up"):
+			SFXManager.ship_thruster.play(false)
 			if SFXManager.ship_thruster.get_parameter("PitchParam") < 0.20:
 				SFXManager.ship_thruster.set_parameter("PitchParam", SFXManager.ship_thruster.get_parameter("PitchParam") + (0.10 * delta))
 		

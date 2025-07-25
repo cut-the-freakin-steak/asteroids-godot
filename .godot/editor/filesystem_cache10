@@ -1,5 +1,5 @@
 402328103580866a843696c89a4ea599
-::res://::1753416379
+::res://::1753464471
 export_presets.cfg::TextFile/TextFile::-1::1748483461::0::1::::<><><>0<>0<><>::
 icon.svg::CompressedTexture2D/CompressedTexture2D::6196571348602018299::1745869081::1745869081::1::::<><><>0<>0<>c171c04a4aead5346d9bca9f802dabb2<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
 README.md::TextFile/TextFile::-1::1749248743::0::1::::<><><>0<>0<><>::
@@ -333,17 +333,18 @@ camera_3d_resource.gd::GDScript/GDScript::4717552271394480598::1750221657::0::1:
 phantom_camera_noise_2d.gd::GDScript/GDScript::7746826514819894941::1750221657::0::1::::PhantomCameraNoise2D<>Resource<>res://addons/phantom_camera/icons/phantom_camera_noise_resource.svg<>0<>1<><>::
 phantom_camera_noise_3d.gd::GDScript/GDScript::6187281538235516492::1750221657::0::1::::PhantomCameraNoise3D<>Resource<>res://addons/phantom_camera/icons/phantom_camera_noise_resource.svg<>0<>1<><>::
 tween_resource.gd::GDScript/GDScript::2358266811638875852::1750221657::0::1::::PhantomCameraTween<>Resource<>res://addons/phantom_camera/icons/phantom_camera_tween.svg<>0<>0<><>::
-::res://addons/phantom_camera/themes/::1753408590
+::res://addons/phantom_camera/themes/::1753460559
 button_focus.tres::StyleBoxFlat/StyleBoxFlat::1106322926052085743::1750221657::0::1::::<><><>0<>0<><>::
 button_hover.tres::StyleBoxFlat/StyleBoxFlat::2151354179275418664::1750221657::0::1::::<><><>0<>0<><>::
 button_normal.tres::StyleBoxFlat/StyleBoxFlat::2549607310371774247::1750221657::0::1::::<><><>0<>0<><>::
-theme.tres::Theme::2909626652912860453::1753408590::0::1::::<><><>0<>0<><>::uid://dve7mgsjik4dg::::res://addons/phantom_camera/fonts/Nunito-Regular.ttf<>uid://5weqvkjsfso3::::res://addons/phantom_camera/themes/button_hover.tres<>uid://bclbwo3xrdat0::::res://addons/phantom_camera/themes/button_normal.tres
+theme.tres::Theme::2909626652912860453::1753460559::0::1::::<><><>0<>0<><>::uid://dve7mgsjik4dg::::res://addons/phantom_camera/fonts/Nunito-Regular.ttf<>uid://5weqvkjsfso3::::res://addons/phantom_camera/themes/button_hover.tres<>uid://bclbwo3xrdat0::::res://addons/phantom_camera/themes/button_normal.tres
 ::res://assets/::1751772090
 Brush Script.ttf::FontFile/FontFile::6414205969571398710::1745869081::1745869081::1::::<><><>0<>0<>40d063b94f9e92efa1814172f23dbb06<>res://.godot/imported/Brush Script.ttf-375054df400f00e7015decb343ea4233.fontdata::
-::res://assets/aseprite/::1753405749
+::res://assets/aseprite/::1753442987
 asteroid-big.aseprite::PackedDataContainer/PackedDataContainer::7708746968175747032::1745869081::1753405748::1::::<><><>0<>0<>5307e1878b2f57f53684df39b3977c12<>res://.godot/imported/asteroid-big.aseprite-a161ec406a57c847b78ca0606ec38b46.res::
 asteroid-medium.aseprite::PackedDataContainer/PackedDataContainer::601959033526126460::1745869081::1753405748::1::::<><><>0<>0<>2eb4309ceefc9bbc76dc02d382a8102d<>res://.godot/imported/asteroid-medium.aseprite-56fc60f152726fbbd5982c0c4a661656.res::
 asteroid-small.aseprite::PackedDataContainer/PackedDataContainer::1085536867152774110::1745869081::1753405748::1::::<><><>0<>0<>dc75765ab11c050809f0f2bf7a204e7b<>res://.godot/imported/asteroid-small.aseprite-953d6ea8c8fd12d7971df7cb5ba406f4.res::
+asteroids-recreation-splash.aseprite::SpriteFrames/SpriteFrames::712750246399019800::1753442985::1753442987::1::::<><><>0<>0<>10992837d5b80b15ca4b6db1fc91a82a<>res://.godot/imported/asteroids-recreation-splash.aseprite-4c8d5401829c040e35aba0eec49659da.res::res://.godot/imported/asteroids-recreation-splash.aseprite-4c8d5401829c040e35aba0eec49659da.asteroids-recreation-splash.texture.res
 bullet.aseprite::SpriteFrames/SpriteFrames::1944639135019346782::1745869081::1753405748::1::::<><><>0<>0<>9a4cd38320832a3858cead2573d62ff6<>res://.godot/imported/bullet.aseprite-21c319dcb02028c8f5a92983c96c2be1.res::res://.godot/imported/bullet.aseprite-21c319dcb02028c8f5a92983c96c2be1.bullet.texture.res
 player.aseprite::SpriteFrames/SpriteFrames::9105009118985383796::1745869081::1753405749::1::::<><><>0<>0<>5617119a376762164ee53859e6ce2ee9<>res://.godot/imported/player.aseprite-c7cebc9f3c4005589071c3707862239b.res::res://.godot/imported/player.aseprite-c7cebc9f3c4005589071c3707862239b.player.texture.res
 player_piece_1.aseprite::SpriteFrames/SpriteFrames::7315951004374362563::1748361357::1753405747::1::::<><><>0<>0<>e2dd67bd2bfa961db7d986a4c71efb2d<>res://.godot/imported/player_piece_1.aseprite-6852507aafd839a4a3e471cd38b3d056.res::res://.godot/imported/player_piece_1.aseprite-6852507aafd839a4a3e471cd38b3d056.player_piece_1.texture.res
@@ -366,7 +367,7 @@ small-med-asteroid-explosion.wav::AudioStreamWAV/AudioStreamWAV::249316003404937
 toggle-disabled.wav::AudioStreamWAV/AudioStreamWAV::2740587830589579214::1749254527::1749254586::1::::<><><>0<>0<>9a111e8f3ee1369298b9a58673422fd8<>res://.godot/imported/toggle-disabled.wav-6d9d693ba7e84b4083de07b05d6e3fa4.sample::
 weird-route-cancel.mp3::AudioStreamMP3/AudioStreamMP3::1145764245787108665::1752951734::1752952497::1::::<><><>0<>0<>126e4dd3362a8a1ecef77f1d1a31b85b<>res://.godot/imported/weird-route-cancel.mp3-7b079e19e9c84991d46321ca5ebfc013.mp3str::
 weird-route-uh-oh.mp3::AudioStreamMP3/AudioStreamMP3::1951969084299551458::1752952479::1752952497::1::::<><><>0<>0<>f7790a20631268888906f949f60de6b7<>res://.godot/imported/weird-route-uh-oh.mp3-a9d0ed27ea32afc1ef8824b0032b5d39.mp3str::
-::res://assets/sprites/::1748529840
+::res://assets/sprites/::1753442996
 are-you-sure.jpg::CompressedTexture2D/CompressedTexture2D::457092852533405559::1748529826::1748529840::1::::<><><>0<>0<>6322c649e2cf886d9d8c554b90213326<>res://.godot/imported/are-you-sure.jpg-34a895d26a8db36f188d7c5c71e4ea11.ctex::
 asteroid-big.png::CompressedTexture2D/CompressedTexture2D::1170693661621717028::1745869081::1745869081::1::::<><><>0<>0<>4fc2484abf168cac1192ee6632584a02<>res://.godot/imported/asteroid-big.png-f669239dc41c443f6e0dfc93535cd7aa.ctex::
 asteroid-medium.png::CompressedTexture2D/CompressedTexture2D::3984995602907923406::1745869081::1745869081::1::::<><><>0<>0<>af0ff8cac5eee910b69bcf7fbb463a38<>res://.godot/imported/asteroid-medium.png-b83fc909b7d53e283511319e30980235.ctex::
@@ -376,8 +377,9 @@ player-piece-1.png::CompressedTexture2D/CompressedTexture2D::8798503443563082887
 player-piece-2.png::CompressedTexture2D/CompressedTexture2D::1294862381883308283::1748362923::1748362923::1::::<><><>0<>0<>9aad84101f377eb6ca956cfa0c849d1e<>res://.godot/imported/player-piece-2.png-b43e4eeded7852b2f9c961c87fefdd97.ctex::
 player-piece-3.png::CompressedTexture2D/CompressedTexture2D::4497252731652825794::1748362929::1748362929::1::::<><><>0<>0<>9f8e85eae97cd1db250b7fe39993dc14<>res://.godot/imported/player-piece-3.png-36038856b7b8da8ac3c526a574768d72.ctex::
 player.png::CompressedTexture2D/CompressedTexture2D::2785238155285889835::1745869081::1745869081::1::::<><><>0<>0<>574f457093b8e5076f95e77d5a4b7d31<>res://.godot/imported/player.png-e1eaffe0873063c60a0d0b322e4d87d9.ctex::
+splash_screen.png::CompressedTexture2D/CompressedTexture2D::1974915461152847432::1753442996::1753442996::1::::<><><>0<>0<>242f01f232121f16ce8ff5dc1bf468d6<>res://.godot/imported/splash_screen.png-d7652c3435215d0f18123860dcc39a5c.ctex::
 ::res://fmod-stuff/::1749337174
-::res://fmod-stuff/asteroids-sounds/::1753416332
+::res://fmod-stuff/asteroids-sounds/::1753461682
 ::res://fmod-stuff/asteroids-sounds/Assets/::1752952670
 ::res://fmod-stuff/asteroids-sounds/Assets/music/::1752947213
 asteroids-game-over-no-drums.wav::AudioStreamWAV/AudioStreamWAV::2498131538426787304::1752947181::1752947213::1::::<><><>0<>0<>b5a57cb0eb3b5d5baf8933ab5a7767f1<>res://.godot/imported/asteroids-game-over-no-drums.wav-08f799f4c2df55f2bcb7371e391a3e43.sample::
@@ -396,8 +398,8 @@ small-med-asteroid-explosion.wav::AudioStreamWAV/AudioStreamWAV::492281605049008
 toggle-disabled.wav::AudioStreamWAV/AudioStreamWAV::4066653395441055366::1749319016::1749324336::1::::<><><>0<>0<>f654aad424901279e7a8b96f2050dd89<>res://.godot/imported/toggle-disabled.wav-82f26beef6979fac042a327edd0400ac.sample::
 weird-route-cancel.mp3::AudioStreamMP3/AudioStreamMP3::5000030222228919116::1752952509::1752952577::1::::<><><>0<>0<>ef10f7442691b4820d31766895209f12<>res://.godot/imported/weird-route-cancel.mp3-767a532c6faa473c30b9ea8ed692bfe1.mp3str::
 weird-route-uh-oh.mp3::AudioStreamMP3/AudioStreamMP3::6531263347204830162::1752952509::1752952577::1::::<><><>0<>0<>ff4f761c69dd2c5c51ca27fd31b82e2a<>res://.godot/imported/weird-route-uh-oh.mp3-5bd79d01476785f56d5fcc035a374857.mp3str::
-::res://fmod-stuff/asteroids-sounds/Metadata/::1749598776
-Master.xml::TextFile/TextFile::-1::1749318079::0::1::::<><><>0<>0<><>::
+::res://fmod-stuff/asteroids-sounds/Metadata/::1753434292
+Master.xml::TextFile/TextFile::-1::1753434292::0::1::::<><><>0<>0<><>::
 Mixer.xml::TextFile/TextFile::-1::1749445775::0::1::::<><><>0<>0<><>::
 Tags.xml::TextFile/TextFile::-1::1749318079::0::1::::<><><>0<>0<><>::
 Workspace.xml::TextFile/TextFile::-1::1749325929::0::1::::<><><>0<>0<><>::
@@ -436,22 +438,22 @@ Workspace.xml::TextFile/TextFile::-1::1749325929::0::1::::<><><>0<>0<><>::
 ::res://fmod-stuff/asteroids-sounds/Metadata/EncodingSetting/::1749325929
 {0a49aaef-b83a-4349-928a-b6b17c0e4167}.xml::TextFile/TextFile::-1::1749325929::0::1::::<><><>0<>0<><>::
 {db1b3975-c748-48b5-9c42-d54dd658735c}.xml::TextFile/TextFile::-1::1749318079::0::1::::<><><>0<>0<><>::
-::res://fmod-stuff/asteroids-sounds/Metadata/Event/::1753415764
-{3c356a64-c24e-43c9-9683-14a7cae0fd82}.xml::TextFile/TextFile::-1::1750314730::0::1::::<><><>0<>0<><>::
-{6bc098ea-2383-4a09-b83f-f290bb246b07}.xml::TextFile/TextFile::-1::1752956869::0::1::::<><><>0<>0<><>::
-{6e64ee53-982b-4c7e-8bc8-5700670c51fe}.xml::TextFile/TextFile::-1::1750226257::0::1::::<><><>0<>0<><>::
-{7ec103af-433d-4ef7-9685-69e66ac5c550}.xml::TextFile/TextFile::-1::1752954242::0::1::::<><><>0<>0<><>::
-{672d0473-ec35-4b0f-a2f1-4a2cf42c36ac}.xml::TextFile::-1::1753410027::0::1::::<><><>0<>0<><>::
-{b9086e76-b2df-4441-bca4-792ee7c8007c}.xml::TextFile::-1::1753415764::0::1::::<><><>0<>0<><>::
-{f3ae978d-05b9-4c25-8972-426dae722c30}.xml::TextFile::-1::1753415622::0::1::::<><><>0<>0<><>::
-{f1633b40-b573-4032-a0c6-10ff684b966f}.xml::TextFile/TextFile::-1::1750226459::0::1::::<><><>0<>0<><>::
+::res://fmod-stuff/asteroids-sounds/Metadata/Event/::1753461673
+{3c356a64-c24e-43c9-9683-14a7cae0fd82}.xml::TextFile/TextFile::-1::1753422402::0::1::::<><><>0<>0<><>::
+{6bc098ea-2383-4a09-b83f-f290bb246b07}.xml::TextFile/TextFile::-1::1753423367::0::1::::<><><>0<>0<><>::
+{6e64ee53-982b-4c7e-8bc8-5700670c51fe}.xml::TextFile/TextFile::-1::1753422462::0::1::::<><><>0<>0<><>::
+{7ec103af-433d-4ef7-9685-69e66ac5c550}.xml::TextFile::-1::1753461673::0::1::::<><><>0<>0<><>::
+{672d0473-ec35-4b0f-a2f1-4a2cf42c36ac}.xml::TextFile/TextFile::-1::1753423367::0::1::::<><><>0<>0<><>::
+{b9086e76-b2df-4441-bca4-792ee7c8007c}.xml::TextFile/TextFile::-1::1753423367::0::1::::<><><>0<>0<><>::
+{f3ae978d-05b9-4c25-8972-426dae722c30}.xml::TextFile/TextFile::-1::1753423367::0::1::::<><><>0<>0<><>::
+{f1633b40-b573-4032-a0c6-10ff684b966f}.xml::TextFile/TextFile::-1::1753423367::0::1::::<><><>0<>0<><>::
 ::res://fmod-stuff/asteroids-sounds/Metadata/EventFolder/::1749489229
 {73847206-219c-4d7e-89c6-d2736fce0768}.xml::TextFile/TextFile::-1::1749489229::0::1::::<><><>0<>0<><>::
 {bb21b072-5bb1-46e4-a4a5-8e2d3f8a121f}.xml::TextFile/TextFile::-1::1749445775::0::1::::<><><>0<>0<><>::
 {d577f0f8-2354-4693-832d-480ad1c8a941}.xml::TextFile/TextFile::-1::1749318079::0::1::::<><><>0<>0<><>::
-::res://fmod-stuff/asteroids-sounds/Metadata/Group/::1749445775
-{502e3ffa-bbaa-4c20-b716-c776dde987aa}.xml::TextFile/TextFile::-1::1749445775::0::1::::<><><>0<>0<><>::
-{847e4946-f4b4-4362-a6c7-ffb7b7c81ebe}.xml::TextFile/TextFile::-1::1749445775::0::1::::<><><>0<>0<><>::
+::res://fmod-stuff/asteroids-sounds/Metadata/Group/::1753433798
+{502e3ffa-bbaa-4c20-b716-c776dde987aa}.xml::TextFile/TextFile::-1::1753433798::0::1::::<><><>0<>0<><>::
+{847e4946-f4b4-4362-a6c7-ffb7b7c81ebe}.xml::TextFile/TextFile::-1::1753433798::0::1::::<><><>0<>0<><>::
 ::res://fmod-stuff/asteroids-sounds/Metadata/Locale/::1749598776
 ::res://fmod-stuff/asteroids-sounds/Metadata/MixerView/::1749598776
 ::res://fmod-stuff/asteroids-sounds/Metadata/ParameterPreset/::1753407996
@@ -480,30 +482,37 @@ Workspace.xml::TextFile/TextFile::-1::1749325929::0::1::::<><><>0<>0<><>::
 {4864fb0a-4c50-4c4b-a0af-5387e24d301a}.xml::TextFile/TextFile::-1::1749318079::0::1::::<><><>0<>0<><>::
 ::res://fmod-stuff/asteroids-sounds/Metadata/VCA/::1749598776
 ::res://fmod-stuff/Desktop/::1749325935
-::res://scenes/::1753416364
+::res://scenes/::1753464425
 asteroid-big.tscn::PackedScene/PackedScene::5341717898142209929::1750218321::0::1::::<><><>0<>0<><>::uid://choi4nouti1wy::::res://scripts/asteroid-big.gd<>uid://qxdfhr1lvyg7::::res://assets/sprites/asteroid-big.png
 asteroid-medium.tscn::PackedScene/PackedScene::8552024396053312420::1750218315::0::1::::<><><>0<>0<><>::uid://bw1mkbpasvltu::::res://assets/sprites/asteroid-medium.png<>uid://dwf0s4x3gt0qy::::res://scripts/asteroid-medium.gd
 asteroid-small.tscn::PackedScene/PackedScene::693859726098123858::1750218311::0::1::::<><><>0<>0<><>::uid://c0ol6hnl03wm0::::res://assets/sprites/asteroid-small.png<>uid://cp3bhecd07bxt::::res://scripts/asteroid-small.gd
 asteroid.tscn::PackedScene/PackedScene::6421357296518599638::1749679789::0::1::::<><><>0<>0<><>::uid://cgnx2cehhifog::::res://scripts/asteroid.gd
+bank_loader_fmod.tscn::PackedScene/PackedScene::5103417335260402400::1753423818::0::1::::<><><>0<>0<><>::
 bullet.tscn::PackedScene/PackedScene::941343807607201321::1747969501::0::1::::<><><>0<>0<><>::uid://ddaunji8gn6gm::::res://assets/sprites/bullet.png<>uid://b0tti0lsmu2ou::::res://scripts/bullet.gd
+credits.tscn::PackedScene::7225947152580764734::1753464295::0::1::::<><><>0<>0<><>::uid://boqpv7p1ulhic::::res://scripts/credits.gd<>uid://cxndbgxf3g7sc::::res://assets/Brush Script.ttf
 main.tscn::PackedScene/PackedScene::3395815588475152141::1753405586::0::1::::<><><>0<>0<><>::uid://dtu70e44iapa0::::res://scripts/main.gd<>uid://dxsu0lyfisjgy::::res://scenes/player.tscn<>uid://bfxgp3dt64uc6::::res://assets/sprites/player.png<>uid://cxndbgxf3g7sc::::res://assets/Brush Script.ttf<>uid://bd046eokvcnu2::::res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd<>uid://8nhhn8h8kl4r::::res://scripts/camera_manager.gd<>uid://bhexx6mj1xv3q::::res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd<>uid://8umksf8e80fw::::res://addons/phantom_camera/scripts/resources/tween_resource.gd<>uid://dxmccitojtrmd::::res://assets/sprites/player-piece-1.png<>uid://spigusynyq2v::::res://assets/sprites/player-piece-2.png<>uid://b5crdik6gnoog::::res://assets/sprites/player-piece-3.png
-main_menu.tscn::PackedScene::4019141786913358586::1753415766::0::1::::<><><>0<>0<><>::uid://cdmenooby1ky4::::res://scripts/main_menu.gd<>uid://cxndbgxf3g7sc::::res://assets/Brush Script.ttf
-music_manager.tscn::PackedScene::7148976989295762524::1753416023::0::1::::<><><>0<>0<><>::uid://ce263noasy2kb::::res://scripts/audio/music.gd
+main_menu.tscn::PackedScene::4019141786913358586::1753464425::0::1::::<><><>0<>0<><>::uid://cdmenooby1ky4::::res://scripts/main_menu.gd<>uid://cxndbgxf3g7sc::::res://assets/Brush Script.ttf
+music_manager.tscn::PackedScene/PackedScene::7148976989295762524::1753435237::0::1::::<><><>0<>0<><>::uid://ce263noasy2kb::::res://scripts/audio/music.gd
 player.tscn::PackedScene/PackedScene::8812023854100819128::1749609475::0::1::::<><><>0<>0<><>::uid://djrfljkaic70n::::res://scripts/player.gd<>uid://bfxgp3dt64uc6::::res://assets/sprites/player.png
-settings.tscn::PackedScene/PackedScene::7716902879858500567::1750225481::0::1::::<><><>0<>0<><>::uid://cxndbgxf3g7sc::::res://assets/Brush Script.ttf<>uid://bigdygbktcrva::::res://scripts/settings.gd
-sfx_manager.tscn::PackedScene::1223905037655744334::1753416364::0::1::::<><><>0<>0<><>::uid://doapjseheg0x6::::res://scripts/audio/sfx.gd
-::res://scripts/::1750391174
+settings.tscn::PackedScene::7716902879858500567::1753464256::0::1::::<><><>0<>0<><>::uid://cxndbgxf3g7sc::::res://assets/Brush Script.ttf<>uid://bigdygbktcrva::::res://scripts/settings.gd
+sfx_manager.tscn::PackedScene::1223905037655744334::1753464312::0::1::::<><><>0<>0<><>::uid://doapjseheg0x6::::res://scripts/audio/sfx.gd
+splash_screen.tscn::PackedScene::5323451835266058819::1753464256::0::1::::<><><>0<>0<><>::uid://b7kh50wqw6128::::res://scripts/splash_screen.gd<>uid://3ewtl5fn3kvg::::res://assets/sprites/splash_screen.png
+tutorial.tscn::PackedScene::3582292276922175062::1753464256::0::1::::<><><>0<>0<><>::uid://bsnbx1k67bmio::::res://scripts/tutorial.gd<>uid://cxndbgxf3g7sc::::res://assets/Brush Script.ttf
+::res://scripts/::1753463955
 asteroid-big.gd::GDScript/GDScript::5293602790739897180::1750224506::0::1::::<>Asteroid<><>0<>0<><>::
 asteroid-medium.gd::GDScript/GDScript::8715290128984406100::1750224506::0::1::::<>Asteroid<><>0<>0<><>::
 asteroid-small.gd::GDScript/GDScript::5883550029974446101::1750224506::0::1::::<>Asteroid<><>0<>0<><>::
 asteroid.gd::GDScript/GDScript::5222256158839875334::1749679392::0::1::::Asteroid<>Area2D<><>0<>0<><>::
 bullet.gd::GDScript/GDScript::4181534192096142012::1750225576::0::1::::<>CharacterBody2D<><>0<>0<><>::
 camera_manager.gd::GDScript/GDScript::2343507004509196695::1748370580::0::1::::<>Node<><>0<>0<><>::
-global_settings_singleton.gd::GDScript/GDScript::8461672460444073702::1748448966::0::1::::<>Node<><>0<>0<><>::
-main.gd::GDScript::8536125480120327221::1753410322::0::1::::<>Node2D<><>0<>0<><>::
-main_menu.gd::GDScript/GDScript::5008447271673551717::1753405661::0::1::::<>Control<><>0<>0<><>::
-player.gd::GDScript::7826379782506399599::1753410685::0::1::::<>CharacterBody2D<><>0<>0<><>::
-settings.gd::GDScript/GDScript::2960543026518484558::1753405949::0::1::::<>Control<><>0<>0<><>::
+credits.gd::GDScript::3403044500381769926::1753464423::0::1::::<>Control<><>0<>0<><>::
+global_settings_singleton.gd::GDScript/GDScript::8461672460444073702::1753443387::0::1::::<>Node<><>0<>0<><>::
+main.gd::GDScript/GDScript::8536125480120327221::1753410322::0::1::::<>Node2D<><>0<>0<><>::
+main_menu.gd::GDScript::5008447271673551717::1753463822::0::1::::<>Control<><>0<>0<><>::
+player.gd::GDScript/GDScript::7826379782506399599::1753440452::0::1::::<>CharacterBody2D<><>0<>0<><>::
+settings.gd::GDScript::2960543026518484558::1753463510::0::1::::<>Control<><>0<>0<><>::
+splash_screen.gd::GDScript::4653587398244313591::1753461449::0::1::::<>Control<><>0<>0<><>::
+tutorial.gd::GDScript::3676759952739502390::1753464410::0::1::::<>Control<><>0<>0<><>::
 window_manager.gd::GDScript/GDScript::5146051080167653043::1749182257::0::1::::<>Node<><>0<>0<><>::
 ::res://scripts/audio/::1750224634
 music.gd::GDScript/GDScript::5111267874758885665::1753406487::0::1::::<>Node2D<><>0<>0<><>::

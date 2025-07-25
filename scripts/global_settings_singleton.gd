@@ -1,13 +1,17 @@
 extends Node
 
 var settings_save_path = "user://settings.json"
-var vsync_on: bool = false
+var vsync_on: bool = true
 var screen_shake_on: bool = true
 var hurricane_mode: bool = false
 
 var master_volume: float = 1.5
 var music_volume: float = 1.5
 var sfx_volume: float = 1.5
+
+@onready var master_bus: FmodBus = FmodServer.get_bus("bus:/")
+@onready var music_bus: FmodBus = FmodServer.get_bus("bus:/Music")
+@onready var sfx_bus: FmodBus = FmodServer.get_bus("bus:/SFX")
 
 func save_settings() -> void:
 	var settings_dict = {
@@ -50,12 +54,12 @@ func load_settings() -> void:
 	var parsed_result = json.parse(json_string)
 	
 	if parsed_result != OK:
-		printerr("failed to parse the goddamn settings")
+		printerr("failed to parse the goddamn settings goddamnit")
 		return
 	
 	var settings_dict = json.data
 	
-	# load each setting with a fallback value just in case
+	# load each setting and update variable values with a fallback value just in case
 	vsync_on = settings_dict.get("vsync_on", vsync_on)
 	screen_shake_on = settings_dict.get("screen_shake_on", screen_shake_on)
 	hurricane_mode = settings_dict.get("hurricane_mode", hurricane_mode)
@@ -63,3 +67,15 @@ func load_settings() -> void:
 	master_volume = settings_dict.get("master_volume", master_volume)
 	music_volume = settings_dict.get("music_volume", music_volume)
 	sfx_volume = settings_dict.get("sfx_volume", sfx_volume)
+	
+	# any settings not seen here handle their behaviour based on a variable, and they aren't set at runtime
+	match vsync_on:
+		true:
+			DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_ENABLED)
+		
+		false:
+			DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED)
+
+	master_bus.volume = master_volume
+	music_bus.volume = music_volume
+	sfx_bus.volume = sfx_volume
