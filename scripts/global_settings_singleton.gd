@@ -1,22 +1,65 @@
 extends Node
 
-var settings_save_path = "user://settings.data"
+var settings_save_path = "user://settings.json"
 var vsync_on: bool = false
 var screen_shake_on: bool = true
 var hurricane_mode: bool = false
 
+var master_volume: float = 1.5
+var music_volume: float = 1.5
+var sfx_volume: float = 1.5
+
 func save_settings() -> void:
+	var settings_dict = {
+		"vsync_on": vsync_on,
+		"screen_shake_on": screen_shake_on,
+		"hurricane_mode": hurricane_mode,
+		"master_volume": master_volume,
+		"music_volume": music_volume,
+		"sfx_volume": sfx_volume
+	}
+
+	var json_string = JSON.stringify(settings_dict, "\t")
 	var file: FileAccess = FileAccess.open(settings_save_path, FileAccess.WRITE)
-	file.store_var(vsync_on)
-	file.store_var(screen_shake_on)
-	file.store_var(hurricane_mode)
+	
+	if file == null:
+		printerr("the goddamn file returned null goddamnit")
+		return
+
+	file.store_string(json_string)
 	file.close()
 
 
 func load_settings() -> void:
-	if FileAccess.file_exists(settings_save_path):
-		var file = FileAccess.open(settings_save_path, FileAccess.READ)
-		vsync_on = file.get_var()
-		screen_shake_on = file.get_var()
-		hurricane_mode = file.get_var()
-		file.close()
+	if not FileAccess.file_exists(settings_save_path):
+		return
+
+	var file = FileAccess.open(settings_save_path, FileAccess.READ)
+	
+	if file == null:
+		printerr("the goddamn file returned null goddamnit")
+		return
+
+	var json_string = file.get_as_text()
+	
+	file.close()
+	
+	var json = JSON.new()
+
+	# parse json and check result to make sure settings arent corrupt
+	var parsed_result = json.parse(json_string)
+	
+	if parsed_result != OK:
+		printerr("failed to parse the goddamn settings")
+		return
+	
+	var settings_dict = json.data
+	
+	# load each setting with a fallback value just in case
+	vsync_on = settings_dict.get("vsync_on", vsync_on)
+	screen_shake_on = settings_dict.get("screen_shake_on", screen_shake_on)
+	hurricane_mode = settings_dict.get("hurricane_mode", hurricane_mode)
+
+	master_volume = settings_dict.get("master_volume", master_volume)
+	music_volume = settings_dict.get("music_volume", music_volume)
+	sfx_volume = settings_dict.get("sfx_volume", sfx_volume)
