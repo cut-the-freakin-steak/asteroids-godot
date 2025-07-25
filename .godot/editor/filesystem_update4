@@ -1,3 +1,4 @@
-res://scripts/credits.gd
-res://scenes/main_menu.tscn
+res://scenes/sfx_manager.tscn
 res://addons/phantom_camera/themes/theme.tres
+res://scenes/music_manager.tscn
+res://scenes/main_menu.tscn
