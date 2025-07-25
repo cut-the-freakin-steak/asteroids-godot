@@ -1410,15 +1410,9 @@ metadata/_edit_use_anchors_ = true
 [node name="GameOverAnimTimer" type="Timer" parent="UI"]
 one_shot = true
 
-[node name="Audio" type="Node" parent="."]
-
-[node name="FmodBankLoader" type="FmodBankLoader" parent="Audio"]
-bank_paths = ["res://fmod-stuff/Desktop/Master.strings.bank", "res://fmod-stuff/Desktop/Master.bank", "res://fmod-stuff/Desktop/SFX.bank", "res://fmod-stuff/Desktop/Music.bank"]
-
-[node name="ButtonClick" type="FmodEventEmitter2D" parent="Audio"]
-event_name = "event:/SFX/ButtonClick"
-event_guid = "{3c356a64-c24e-43c9-9683-14a7cae0fd82}"
-attached = false
+[node name="AliveToDeadMusicTimer" type="Timer" parent="."]
+wait_time = 0.75
+one_shot = true
 
 [connection signal="timeout" from="AsteroidTimer" to="." method="_on_asteroid_timer_timeout"]
 [connection signal="pressed" from="UI/PauseUI/Resume" to="." method="_on_resume_pressed"]
@@ -1427,3 +1421,4 @@ attached = false
 [connection signal="pressed" from="UI/TryAgain" to="." method="_on_try_again_pressed"]
 [connection signal="pressed" from="UI/MainMenu" to="." method="_on_main_menu_pressed"]
 [connection signal="timeout" from="UI/GameOverAnimTimer" to="." method="_on_game_over_anim_timer_timeout"]
+[connection signal="timeout" from="AliveToDeadMusicTimer" to="." method="_on_alive_to_dead_music_timer_timeout"]

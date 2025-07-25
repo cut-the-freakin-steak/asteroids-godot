@@ -686,16 +686,6 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_f4mfi")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_es4n0")
 metadata/_edit_use_anchors_ = true
 
-[node name="Audio" type="Node" parent="."]
-
-[node name="FmodBankLoader" type="FmodBankLoader" parent="Audio"]
-bank_paths = ["res://fmod-stuff/Desktop/Master.strings.bank", "res://fmod-stuff/Desktop/Master.bank", "res://fmod-stuff/Desktop/SFX.bank", "res://fmod-stuff/Desktop/Music.bank"]
-
-[node name="ButtonClick" type="FmodEventEmitter2D" parent="Audio"]
-event_name = "event:/SFX/ButtonClick"
-event_guid = "{3c356a64-c24e-43c9-9683-14a7cae0fd82}"
-attached = false
-
 [connection signal="pressed" from="Return" to="." method="_on_return_pressed"]
 [connection signal="toggled" from="VSyncToggle" to="." method="_on_v_sync_toggle_toggled"]
 [connection signal="toggled" from="ScreenShakeToggle" to="." method="_on_screen_shake_toggle_toggled"]

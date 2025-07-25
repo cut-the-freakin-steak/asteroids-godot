@@ -15,8 +15,6 @@ extends Control
 @export var no_quit: Button
 @export var yes_quit: Button
 
-@export var click_sfx: FmodEventEmitter2D
-
 var game_scene: PackedScene = preload("res://scenes/main.tscn")
 var settings_scene: PackedScene = preload("res://scenes/settings.tscn")
 var small_ast_scene: PackedScene = preload("res://scenes/asteroid-small.tscn")
@@ -26,6 +24,7 @@ var asteroids: Array[PackedScene] = [small_ast_scene, medium_ast_scene, big_ast_
 
 func _ready() -> void:
 	Settings.load_settings()
+	MusicManager.title_theme.play()
 
 func _process(_delta: float) -> void:
 	if not button_animation.is_playing() and Input.is_action_just_pressed("shoot"):
@@ -60,12 +59,13 @@ func _on_asteroid_timer_timeout() -> void:
 
 
 func _on_play_pressed() -> void:
-	click_sfx.play()
+	MusicManager.title_theme.stop()
+	SFXManager.click.play()
 	get_tree().change_scene_to_packed(game_scene)
 
 
 func _on_settings_pressed() -> void:	
-	click_sfx.play()
+	SFXManager.click.play()
 	scene_root_node.visible = false
 	var buttons = get_tree().get_nodes_in_group("button")
 	for button in buttons:
@@ -75,7 +75,7 @@ func _on_settings_pressed() -> void:
 
 
 func _on_quit_pressed() -> void:
-	click_sfx.play()
+	SFXManager.click.play()
 	title.visible = false
 	play_button.visible = false
 	play_button.disabled = true
@@ -92,12 +92,12 @@ func _on_quit_pressed() -> void:
 
 
 func _on_are_you_sure_pressed() -> void:
-	click_sfx.play()
+	SFXManager.click.play()
 	OS.shell_open("https://i.ytimg.com/vi/YSWMYnuOImg/hqdefault.jpg")
 
 
 func _on_no_quit_pressed() -> void:
-	click_sfx.play()
+	SFXManager.click.play()
 	title.visible = true
 	play_button.visible = true
 	play_button.disabled = false
@@ -114,5 +114,5 @@ func _on_no_quit_pressed() -> void:
 
 
 func _on_yes_quit_pressed() -> void:
-	click_sfx.play()
+	SFXManager.click.play()
 	get_tree().quit()

@@ -19,7 +19,7 @@ signal asteroid_hit(asteroid_size: String, position: Vector2)
 @onready var resume_button: Button = $UI/PauseUI/Resume
 @onready var pause_settings_button: Button = $UI/PauseUI/Settings
 @onready var pause_main_menu_button: Button = $UI/PauseUI/MainMenu
-@onready var button_click_sound: FmodEventEmitter2D = $Audio/ButtonClick
+@onready var alive_to_dead_music_timer: Timer = $AliveToDeadMusicTimer
 
 var main_menu_scene: PackedScene = load("res://scenes/main_menu.tscn")
 var settings_scene: PackedScene = preload("res://scenes/settings.tscn")
@@ -36,6 +36,15 @@ var is_paused: bool = false
 var game_over_anim_skipped: bool = false
 
 func _ready():
+	if Settings.hurricane_mode:
+		MusicManager.gameplay.set_parameter("WhichGameplaySong", "Hurricane")
+		
+	else:
+		MusicManager.gameplay.set_parameter("WhichGameplaySong", "Normal")
+
+	MusicManager.gameplay.set_parameter("MuffledOrNot", 1.0)
+	MusicManager.gameplay.set_parameter("NormalGameplaySongPitch", 0.0)
+
 	score = 0
 	is_game_over = false
 	game_over_anim_skipped = false
@@ -52,16 +61,33 @@ func _process(_delta: float) -> void:
 				resume_button.disabled = false
 				pause_settings_button.disabled = false
 				pause_main_menu_button.disabled = false
-			
+				MusicManager.gameplay.set_parameter("MuffledOrNot", 0.40)
+		
 			else:
 				pause_ui.visible = false
 				resume_button.disabled = true
 				pause_settings_button.disabled = true
 				pause_main_menu_button.disabled = true
 				is_paused = false
-			
+				MusicManager.gameplay.set_parameter("MuffledOrNot", 1.0)
+
 	if is_paused:
+		if Settings.hurricane_mode:
+			if MusicManager.gameplay.get_parameter("WhichGameplaySong") != "Hurricane":
+				MusicManager.gameplay.stop()
+				MusicManager.gameplay.set_parameter("WhichGameplaySong", "Hurricane")
+				MusicManager.gameplay.play(false)
+	
+		else:
+			if MusicManager.gameplay.get_parameter("WhichGameplaySong") != "Normal":
+				MusicManager.gameplay.stop()
+				MusicManager.gameplay.set_parameter("WhichGameplaySong", "Normal")
+				MusicManager.gameplay.play(false)
+
 		return
+
+	if is_game_over != true:
+		MusicManager.gameplay.play(false)
 
 	if Input.is_action_just_pressed("shoot") and player.alive and player.shoot_timer.time_left == 0:
 		var new_laser: CharacterBody2D = laser.instantiate()
@@ -129,6 +155,8 @@ func _on_game_over() -> void:
 	game_over_text.visible = true
 	ui_animation.play("appear_game_over_text")
 	game_over_animation_timer.start()
+	MusicManager.gameplay.set_parameter("NormalGameplaySongPitch", -1.0)
+	alive_to_dead_music_timer.start()
 		
 
 func _on_asteroid_timer_timeout() -> void:
@@ -144,14 +172,24 @@ func _on_game_over_anim_timer_timeout() -> void:
 
 
 func _on_resume_pressed() -> void:
+	SFXManager.click.play()
+	if Settings.hurricane_mode:
+		MusicManager.gameplay.set_parameter("WhichGameplaySong", "Hurricane")
+		
+	else:
+		MusicManager.gameplay.set_parameter("WhichGameplaySong", "Normal")
+		
+	MusicManager.gameplay.set_parameter("MuffledOrNot", 1.0)
+
 	pause_ui.visible = false
 	resume_button.disabled = true
 	pause_settings_button.disabled = true
 	pause_main_menu_button.disabled = true
 	is_paused = false
-
+	
 
 func _on_settings_pressed() -> void:
+	SFXManager.click.play()
 	pause_label.visible = false
 	resume_button.visible = false
 	pause_settings_button.visible = false
@@ -165,8 +203,15 @@ func _on_settings_pressed() -> void:
 
 
 func _on_try_again_pressed() -> void:
+	SFXManager.click.play()
 	get_tree().change_scene_to_packed(game_scene)
 
 
 func _on_main_menu_pressed() -> void:
+	MusicManager.gameplay.stop()
+	SFXManager.click.play()
 	get_tree().change_scene_to_packed(main_menu_scene)
+
+
+func _on_alive_to_dead_music_timer_timeout() -> void:
+	MusicManager.gameplay.set_parameter("WhichGameplaySong", "GameOver")

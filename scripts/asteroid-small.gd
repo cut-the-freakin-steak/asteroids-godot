@@ -1,7 +1,5 @@
 extends Asteroid
 
-@export var explosion_sfx: FmodEventEmitter2D
-
 var rotation_speed: int = randi_range(4, 5)
 
 func _ready() -> void:
@@ -27,7 +25,8 @@ func split_in_two() -> void:
 	explosion_parts.emitting = true
 	sprite.visible = false
 	collision.disabled = true
-	explosion_sfx.play()
+	SFXManager.explosion.set_parameter("WhichSound", "SmallMed")
+	SFXManager.explosion.play()
 	explosion_to_queue_free.start()
 
 

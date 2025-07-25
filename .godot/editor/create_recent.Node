@@ -1,6 +1,9 @@
-Asteroid
 FmodEventEmitter2D
+FmodListener2D
 FmodBankLoader
+Timer
+Node2D
+Asteroid
 Node
 AudioStreamPlayer
 CanvasModulate
@@ -8,7 +11,4 @@ Control
 CheckButton
 AnimationPlayer
 Sprite2D
-Timer
 AnimationTree
-CanvasLayer
-GPUParticles2D

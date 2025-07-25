@@ -7,7 +7,10 @@ var max_speed: int = 200
 var acceleration: float = 30
 
 func _ready():
+	randomize()
 	rotation_degrees = player.rotation_degrees + 90
+	SFXManager.laser_shot.set_parameter("PitchParam", snappedf(randf_range(-0.05, 0.05), 0.01))
+	SFXManager.laser_shot.play()
 
 
 func _physics_process(_delta: float):

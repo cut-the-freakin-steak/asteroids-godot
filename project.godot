@@ -39,12 +39,19 @@ config/icon="res://icon.svg"
 
 import/import_plugin/default_automatic_importer="SpriteFrames"
 
+[audio]
+
+buses/default_bus_layout=""
+
 [autoload]
 
 PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd"
 Settings="*res://scripts/global_settings_singleton.gd"
 WindowManager="*res://scripts/window_manager.gd"
 FmodManager="*res://addons/fmod/FmodManager.gd"
+MusicManager="*res://scenes/music_manager.tscn"
+SFXManager="*res://scenes/sfx_manager.tscn"
+BankLoaderFmod="*res://scenes/bank_loader_fmod.tscn"
 
 [display]
 

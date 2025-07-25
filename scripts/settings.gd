@@ -8,9 +8,6 @@ extends Control
 @onready var screen_shake_toggle: CheckButton = $ScreenShakeToggle
 @onready var hurricane_mode_toggle: CheckButton = $HurricaneModeToggle
 
-func _on_return_pressed() -> void:
-	exit_settings()
-
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("esc"):
 		exit_settings()
@@ -68,7 +65,14 @@ func exit_settings() -> void:
 	queue_free()
 
 
+func _on_return_pressed() -> void:
+	SFXManager.click.play()
+	exit_settings()
+
+
 func _on_v_sync_toggle_toggled(toggled_on: bool) -> void:
+	SFXManager.click.play()
+
 	if toggled_on:
 		DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_ENABLED)
 		Settings.vsync_on = true
@@ -81,6 +85,8 @@ func _on_v_sync_toggle_toggled(toggled_on: bool) -> void:
 
 
 func _on_screen_shake_toggle_toggled(toggled_on: bool) -> void:
+	SFXManager.click.play()
+
 	if toggled_on:
 		Settings.screen_shake_on = true
 	
@@ -91,6 +97,8 @@ func _on_screen_shake_toggle_toggled(toggled_on: bool) -> void:
 
 
 func _on_hurricane_mode_toggle_toggled(toggled_on: bool) -> void:
+	SFXManager.click.play()
+
 	if toggled_on:
 		Settings.hurricane_mode = true
 	

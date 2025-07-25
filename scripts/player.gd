@@ -17,8 +17,6 @@ signal damage_taken
 @export var i_frame_timer: Timer
 @export var shoot_timer: Timer
 
-@export var ship_thruster_sfx: FmodEventEmitter2D
-
 var max_speed: int = 100
 var acceleration: float = 2.5
 var rotation_speed: float = 5.5
@@ -35,17 +33,21 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("up"):
-		ship_thruster_sfx.set_parameter("ShouldLoop", "Yes")
-		ship_thruster_sfx.play()
+	if main.is_game_over:
+		SFXManager.ship_thruster.stop()
 		
-	if Input.is_action_pressed("up"):
-		if ship_thruster_sfx.get_parameter("PitchParam") < 0.20:
-			ship_thruster_sfx.set_parameter("PitchParam", ship_thruster_sfx.get_parameter("PitchParam") + (0.10 * delta))
-	
-	if not Input.is_action_pressed("up") and ship_thruster_sfx.get_parameter("ShouldLoop") == "Yes":
-		ship_thruster_sfx.set_parameter("ShouldLoop", "No")
-		ship_thruster_sfx.set_parameter("PitchParam", 0.0)
+	else:
+		if Input.is_action_just_pressed("up"):
+			SFXManager.ship_thruster.set_parameter("ShouldLoop", "Yes")
+			SFXManager.ship_thruster.play()
+			
+		if Input.is_action_pressed("up"):
+			if SFXManager.ship_thruster.get_parameter("PitchParam") < 0.20:
+				SFXManager.ship_thruster.set_parameter("PitchParam", SFXManager.ship_thruster.get_parameter("PitchParam") + (0.10 * delta))
+		
+		if not Input.is_action_pressed("up") and SFXManager.ship_thruster.get_parameter("ShouldLoop") == "Yes":
+			SFXManager.ship_thruster.stop()
+			SFXManager.ship_thruster.set_parameter("PitchParam", 0.0)
 
 
 func _physics_process(delta) -> void:
@@ -212,12 +214,18 @@ func _on_damage_taken() -> void:
 
 	match hp:
 		2:
+			SFXManager.player_hurt.set_parameter("HPRemaining", "Alive")
+			SFXManager.player_hurt.play()
 			main.get_node("UI/HealthUI/Health").play("lose_health_1")
 
 		1:
+			SFXManager.player_hurt.set_parameter("HPRemaining", "Alive")
+			SFXManager.player_hurt.play()
 			main.get_node("UI/HealthUI/Health").play("lose_health_2")
 
 		0:
+			SFXManager.player_hurt.set_parameter("HPRemaining", "Dead")
+			SFXManager.player_hurt.play()
 			main.get_node("UI/HealthUI/Health").play("lose_health_3")
 
 	if hp > 0:

@@ -47,9 +47,8 @@ color_ramp = SubResource("GradientTexture1D_qncy5")
 color_initial_ramp = SubResource("GradientTexture1D_eoqba")
 alpha_curve = SubResource("CurveTexture_y25gk")
 
-[node name="SmallAsteroid" type="Area2D" node_paths=PackedStringArray("explosion_sfx") groups=["asteroid"]]
+[node name="SmallAsteroid" type="Area2D" groups=["asteroid"]]
 script = ExtResource("1_q5apu")
-explosion_sfx = NodePath("Audio/ExplosionSFX")
 metadata/_custom_type_script = "uid://cgnx2cehhifog"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -70,19 +69,5 @@ process_material = SubResource("ParticleProcessMaterial_nfeng")
 
 [node name="ExplosionToQueueFree" type="Timer" parent="."]
 wait_time = 0.8
-
-[node name="Audio" type="Node" parent="."]
-
-[node name="FmodBankLoader" type="FmodBankLoader" parent="Audio"]
-bank_paths = ["res://fmod-stuff/Desktop/SFX.bank"]
-
-[node name="ExplosionSFX" type="FmodEventEmitter2D" parent="Audio"]
-event_name = "event:/SFX/AsteroidsExploding"
-event_guid = "{6e64ee53-982b-4c7e-8bc8-5700670c51fe}"
-attached = false
-fmod_parameters/WhichSound/id = -2015208891237255017
-fmod_parameters/WhichSound = "SmallMed"
-fmod_parameters/WhichSound/labels = PackedStringArray("SmallMed", "Big")
-fmod_parameters/WhichSound/variant_type = 4
 
 [connection signal="timeout" from="ExplosionToQueueFree" to="." method="_on_explosion_to_queue_free_timeout"]
