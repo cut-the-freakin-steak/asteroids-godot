@@ -5,9 +5,9 @@ var vsync_on: bool = true
 var screen_shake_on: bool = true
 var hurricane_mode: bool = false
 
-var master_volume: float = 1.5
-var music_volume: float = 1.5
-var sfx_volume: float = 1.5
+var master_volume: float = 1.0
+var music_volume: float = 1.0
+var sfx_volume: float = 1.0
 
 @onready var master_bus: FmodBus = FmodServer.get_bus("bus:/")
 @onready var music_bus: FmodBus = FmodServer.get_bus("bus:/Music")
@@ -68,7 +68,7 @@ func load_settings() -> void:
 	music_volume = settings_dict.get("music_volume", music_volume)
 	sfx_volume = settings_dict.get("sfx_volume", sfx_volume)
 	
-	# any settings not seen here handle their behaviour based on a variable, and they aren't set at runtime
+	# any settings not seen here handle their behaviour based on a variable, and they aren't set with a specific command
 	match vsync_on:
 		true:
 			DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_ENABLED)

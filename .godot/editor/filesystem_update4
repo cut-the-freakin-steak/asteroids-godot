@@ -1,4 +1,3 @@
-res://scenes/sfx_manager.tscn
+res://scenes/settings.tscn
 res://addons/phantom_camera/themes/theme.tres
-res://scenes/music_manager.tscn
-res://scenes/main_menu.tscn
+res://scripts/global_settings_singleton.gd

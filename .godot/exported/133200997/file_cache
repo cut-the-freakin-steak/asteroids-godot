@@ -85,15 +85,15 @@ res://addons/phantom_camera/panel/editor.tscn::0fa1038b9df55d356b28683d2a0c1e13:
 res://addons/phantom_camera/themes/button_focus.tres::aba93842cd51514adc1d0eb09ba4a71b::1750221657::res://.godot/exported/133200997/export-c2d52f8824b1bc567d558b9c148cee0f-button_focus.res
 res://addons/phantom_camera/themes/button_hover.tres::d863dce054a565f7fd2cc107ad0bec80::1750221657::res://.godot/exported/133200997/export-bf72e12c2ddcea6f1381ea8f179cf6d9-button_hover.res
 res://addons/phantom_camera/themes/button_normal.tres::407ecb984ab7b94ab5bf55a2462e56d5::1750221657::res://.godot/exported/133200997/export-056e5cffeb06d1c067d5922cfcb1322b-button_normal.res
-res://addons/phantom_camera/themes/theme.tres::acc54255fb9a598e40cf6c301405dffb::1753469478::res://.godot/exported/133200997/export-4f46c67cc7d9a94d41450e7d2c070643-theme.res
+res://addons/phantom_camera/themes/theme.tres::acc54255fb9a598e40cf6c301405dffb::1753498949::res://.godot/exported/133200997/export-4f46c67cc7d9a94d41450e7d2c070643-theme.res
 res://scenes/asteroid-big.tscn::5d009d6799525b69e63546e88e34ef67::1750218321::res://.godot/exported/133200997/export-b2c5a6ebd5c85d9c404b40e374d96b36-asteroid-big.scn
 res://scenes/asteroid-medium.tscn::07a269399c94c43896e2e8445e7ef188::1750218315::res://.godot/exported/133200997/export-68014a93eb7ece3e1d2027730a4d99a0-asteroid-medium.scn
 res://scenes/asteroid-small.tscn::2a2ab061412591ffae9c150a28b6ac40::1750218311::res://.godot/exported/133200997/export-9e6b273c91f76abd4248da01b954185a-asteroid-small.scn
 res://scenes/bullet.tscn::22c5e39a3f282305c7488c9f172f8d71::1747969501::res://.godot/exported/133200997/export-6d8e6ff1e6f20a36e0402d27c623c86c-bullet.scn
 res://scenes/main.tscn::0a1f960ffcf685fe0ad7caf2a472b5ff::1753405586::res://.godot/exported/133200997/export-3ad5c15c4f3250da0cc7c1af1770d85f-main.scn
-res://scenes/main_menu.tscn::1c41760b75769c0e73cef275b0f9e1a2::1753469436::res://.godot/exported/133200997/export-ea5c6ad4629af728dc514cefde332394-main_menu.scn
+res://scenes/main_menu.tscn::1c41760b75769c0e73cef275b0f9e1a2::1753498661::res://.godot/exported/133200997/export-ea5c6ad4629af728dc514cefde332394-main_menu.scn
 res://scenes/player.tscn::d65a46cfca070add0c96891188e6f640::1749609475::res://.godot/exported/133200997/export-234fb6894ec6226e856ab7f825500d3d-player.scn
-res://scenes/settings.tscn::f86a0dce281bd5f08993ee903e06d7bc::1753464256::res://.godot/exported/133200997/export-7416c78d345eded4b396246a6c8adbe0-settings.scn
+res://scenes/settings.tscn::eba03d72f5b9aa12f7c6cf612dbd411c::1753502114::res://.godot/exported/133200997/export-7416c78d345eded4b396246a6c8adbe0-settings.scn
 res://addons/fmod/tool/property_editors/FmodBankPathsPropertyEditorUi.tscn::3d9b00fcbf1bf09bb4ef1a37a487ca29::1749539329::res://.godot/exported/133200997/export-2bd790494d21ff740eddb67d1b721ad1-FmodBankPathsPropertyEditorUi.scn
 res://addons/fmod/tool/property_editors/FmodEventEditorProperty.tscn::4daf479606df6f982abbb7b315137556::1749539329::res://.godot/exported/133200997/export-bcc743e20344e8d48eb9252fbc73ab6a-FmodEventEditorProperty.scn
 res://addons/fmod/tool/property_editors/FmodGuidAndPathPropertyEditorUi.tscn::d0f1955157cbbecf174fed20b2a352fe::1749539329::res://.godot/exported/133200997/export-ce13a3181c9d0f2a8bc59bd608847911-FmodGuidAndPathPropertyEditorUi.scn
@@ -106,7 +106,7 @@ res://addons/fmod/tool/ui/TestFmodBankExplorer.tscn::f0955784b2059568ecb5f8b07be
 res://scenes/asteroid.tscn::cbaa27be3358d2d6afb1666ea3179db3::1749679789::res://.godot/exported/133200997/export-77e02d809253e7327db0f2ff299bab2a-asteroid.scn
 res://scenes/bank_loader_fmod.tscn::f09f463b1e9cbe9fcb2af9863dbd1423::1753423818::res://.godot/exported/133200997/export-1a7d7a711bc831c34f93e9c9b3bbc83e-bank_loader_fmod.scn
 res://scenes/credits.tscn::2c47c3a6506c408f184455fa7cab6852::1753464295::res://.godot/exported/133200997/export-5458de4021be8c034221a84b705724a2-credits.scn
-res://scenes/music_manager.tscn::a15403fa9deb5ce7880c2a0a603e9eed::1753469756::res://.godot/exported/133200997/export-70a10c3937bee67bd22343e5ac536038-music_manager.scn
+res://scenes/music_manager.tscn::a15403fa9deb5ce7880c2a0a603e9eed::1753471329::res://.godot/exported/133200997/export-70a10c3937bee67bd22343e5ac536038-music_manager.scn
 res://scenes/sfx_manager.tscn::8f20aefad4204880f101fed4b5f32dba::1753469522::res://.godot/exported/133200997/export-59fa563ecc70f31848cab9be88036cf5-sfx_manager.scn
 res://scenes/splash_screen.tscn::e9d5b2ad82ae2c95015ce1601747afc3::1753464256::res://.godot/exported/133200997/export-012677d704e3d1ec9701ea04a5d91151-splash_screen.scn
 res://scenes/tutorial.tscn::89ef4e940444266578252448aa9b9fa3::1753464256::res://.godot/exported/133200997/export-42ce494387c984238fc1312df9601261-tutorial.scn
