@@ -1,3 +1,2 @@
-res://scenes/settings.tscn
+res://scenes/main_menu.tscn
 res://addons/phantom_camera/themes/theme.tres
-res://scripts/global_settings_singleton.gd
